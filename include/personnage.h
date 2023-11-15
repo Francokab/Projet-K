@@ -16,17 +16,22 @@ class Personnage {
 
 public:
 
+    //Constructor
     Personnage();
     Personnage(string new_nom, int new_pv, int new_force,
     int new_endurance, int new_vitesse, int new_agilite,
-    int new_arcanisme, int new_mana);
+    int new_arcanisme, int new_mana, Arme new_arme, Armure new_armure);
+
+    //Destructor
+    ~Personnage();
 
     //Operations principales de la classe personnage
-    void attaquerUnAutrePersonnage(Arme armes, Personnage ennemis);
+    void attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis);
 
-    void equiper();
+    void equiper_arme(Arme new_arme);
+    void equiper_armure(Armure new_armure);
 
-    virtual void deciderAction() = 0;
+    virtual int deciderAction() = 0;
 
     //Getter
     string get_nom(){return nom;}
@@ -85,6 +90,8 @@ private:
     int agilite = 0;
     int arcanisme = 0;
     int mana = 0;
+    Arme arme_equipe;
+    Armure armure_equipe;
     vector<string> competences_liste;
     vector<Consommable *> consommables_liste;
     vector<Arme *> armes_liste;
