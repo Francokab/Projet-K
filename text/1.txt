@@ -1,0 +1,8 @@
+A peine quelque mètres après l'entrée, vous tombez sur une intersection. Deux chemins s'offrent à vous, il va bien falloir avancer par l'un des deux.
+
+1. Choisir le chemin de gauche.
+2. Choisir le chemin de droite.
+
+*PATH*
+2
+3

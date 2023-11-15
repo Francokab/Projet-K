@@ -1,0 +1,15 @@
+Vous apercevez au loin la lumière, signe d'une sortie très proche. 
+Vous vous dépechez de sortir.
+Cependant plus vous approchez, plus l'ombre d'un monstre s'aggrandit. Vous retenez votre souffle en comprenant ce qui apparaît devant vos yeux, cette créature n'était sensé qu'être une légende. 
+
+*COMBAT*
+Dragon
+100
+10
+
+Le combat avec le dragon finit de détruire ce qu'il restait du temple, vous permettant de sortir directement. Dans les décombres vous arrivez à trouver l'amulette de bénédiction que vous étiez venu chercher et que le dragon gardait précieusement. 
+
+
+*VICTOIRE*
+
+

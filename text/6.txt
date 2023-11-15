@@ -1,0 +1,8 @@
+Vous apercevez une armure flambant neuve. En plus elle est pile à votre taille. Les dieux ne vous ont pas abandonné et semble en accord avec votre quête. Vous priez pour remercier les dieux de leur générosité et vous retournez sur vos pas et continuez votre chemin.
+*ARMURE*
+Bénie
+5
+
+*PATH*
+7
+7
