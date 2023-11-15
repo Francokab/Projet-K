@@ -13,7 +13,7 @@ int Joueurs::deciderAction(){
         try {
             int choix_int = stoi(choix); 
             exception_present = 0;
-        } catch () {
+        } catch (exception()) {
             cout << "N'utiliser que 1 ou 2." << endl;
         }
     }

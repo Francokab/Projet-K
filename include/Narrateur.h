@@ -9,6 +9,9 @@ public:
     Narrateur();
     ~Narrateur();
 
+    void choix_joueur();
+    void print_screen();
+
 private:
 
 };

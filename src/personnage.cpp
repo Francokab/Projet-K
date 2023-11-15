@@ -23,6 +23,8 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force,
     agilite = new_agilite;
     arcanisme = new_arcanisme;
     mana = new_mana;
+    arme_equipe = new_arme;
+    armure_equipe = new_armure;
 
     //Initialisation des statistiques
     statistiques["Nombre de personnages tués"] = 0;
@@ -47,4 +49,3 @@ void Personnage::attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis){
     ennemis->set_pv(pv_ennemie - degats_net);
 
 }
-
