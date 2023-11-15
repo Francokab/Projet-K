@@ -15,7 +15,7 @@ public:
     int game_state;  //which file are we on
     vector<Objet> vector_objet;
     vector<Personnage> vector_personnage;
-    Joueurs joueur;
+    // Joueurs joueur;
 
     void start();
     void readText(int i);
