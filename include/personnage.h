@@ -33,9 +33,9 @@ public:
     int get_arcanisme(){return arcanisme;}
     int get_mana(){return mana;}
     vector<string> get_competences(){return competences_liste;}
-    vector<Consommable> get_consommables(){return consommables_liste;}
-    vector<Arme> get_armes(){return armes_liste;}
-    vector<Armure> get_armures(){return armures_liste;}
+    vector<Consommable *> get_consommables(){return consommables_liste;}
+    vector<Arme *> get_armes(){return armes_liste;}
+    vector<Armure *> get_armures(){return armures_liste;}
     map<string,int> get_statistiques(){return statistiques;}
 
     //Setter
@@ -81,8 +81,8 @@ private:
     int arcanisme = 0;
     int mana = 0;
     vector<string> competences_liste;
-    vector<Consommable> consommables_liste;
-    vector<Arme> armes_liste;
-    vector<Armure> armures_liste;
+    vector<Consommable *> consommables_liste;
+    vector<Arme *> armes_liste;
+    vector<Armure *> armures_liste;
     map<string, int> statistiques;
 };
