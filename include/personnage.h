@@ -1,3 +1,8 @@
+#ifndef PERSONNAGE_H
+#define PERSONNAGE_H
+
+#pragma once
+
 #include "string"
 #include "vector"
 #include "map"
@@ -86,3 +91,5 @@ private:
     vector<Armure *> armures_liste;
     map<string, int> statistiques;
 };
+
+#endif

@@ -1,3 +1,8 @@
+#ifndef MONSTRE_H
+#define MONSTRE_H
+
+#pragma once
+
 #include "personnage.h"
 
 using namespace std;
@@ -8,3 +13,5 @@ public:
     void deciderAction() override;
 
 };
+
+#endif
