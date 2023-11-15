@@ -1,12 +1,11 @@
 #include "string"
 #include "vector"
 #include "map"
+#include "Consommable.h"
+#include "Arme.h"
+#include "Armure.h"
 
 using namespace std;
-
-class Consommables;
-class Armes;
-class Armures;
 
 class Personnage {
 
@@ -18,7 +17,7 @@ public:
     int new_arcanisme, int new_mana);
 
     //Operations principales de la classe personnage
-    void attaquerUnAutrePersonnage(Armes armes, Personnage ennemis);
+    void attaquerUnAutrePersonnage(Arme armes, Personnage ennemis);
 
     void equiper();
 
@@ -34,9 +33,9 @@ public:
     int get_arcanisme(){return arcanisme;}
     int get_mana(){return mana;}
     vector<string> get_competences(){return competences_liste;}
-    vector<Consommables> get_consommables(){return consommables_liste;}
-    vector<Armes> get_armes(){return armes_liste;}
-    vector<Armures> get_armures(){return armures_liste;}
+    vector<Consommable> get_consommables(){return consommables_liste;}
+    vector<Arme> get_armes(){return armes_liste;}
+    vector<Armure> get_armures(){return armures_liste;}
     map<string,int> get_statistiques(){return statistiques;}
 
     //Setter
@@ -53,14 +52,14 @@ public:
     //il nous semble plus pertinent de mettre les setters sous la
     //forme d'un push_back, d'un pop ou d'une remise à zéro.
     void add_competence(string competence);
-    void add_consommable(Consommables conso);
-    void add_arme(Armes arme);
-    void add_armure(Armures armure);
+    void add_consommable(Consommable conso);
+    void add_arme(Arme arme);
+    void add_armure(Armure armure);
 
     void del_competence(string competence);
-    void del_consommable(Consommables conso);
-    void del_arme(Armes arme);
-    void del_armure(Armures armure);
+    void del_consommable(Consommable conso);
+    void del_arme(Arme arme);
+    void del_armure(Armure armure);
 
     void raz_competences();
     void raz_consommables();
@@ -82,8 +81,8 @@ private:
     int arcanisme = 0;
     int mana = 0;
     vector<string> competences_liste;
-    vector<Consommables> consommables_liste;
-    vector<Armes> armes_liste;
-    vector<Armures> armures_liste;
+    vector<Consommable> consommables_liste;
+    vector<Arme> armes_liste;
+    vector<Armure> armures_liste;
     map<string, int> statistiques;
 };
