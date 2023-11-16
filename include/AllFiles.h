@@ -3,6 +3,9 @@
 
 #pragma once
 
+#include "Jeu.h"
+#include "Narrateur.h"
+
 #include "Objet.h"
 #include "Arme.h"
 #include "Armure.h"

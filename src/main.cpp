@@ -12,5 +12,9 @@ int main() {
 
   cout << "Hello World" << "\n";
 
+  Jeu jeu;
+
+  jeu.readText(0);
+  
   return 0;
 }

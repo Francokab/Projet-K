@@ -3,7 +3,8 @@
 
 #pragma once
 
-#include "AllFiles.h"
+#include "Objet.h"
+#include "personnage.h"
 #include <vector>
 
 class Jeu

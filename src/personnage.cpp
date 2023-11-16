@@ -33,6 +33,10 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force,
     statistiques["Nombre de sorts utilisés"] = 0;
 }
 
+Personnage::~Personnage() {
+    
+}
+
 void Personnage::equiper_arme(Arme new_arme){
     arme_equipe = new_arme;
 }

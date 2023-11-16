@@ -1,4 +1,7 @@
 #include "Jeu.h"
+#include <fstream>
+
+using namespace std;
 
 Jeu::Jeu()
 {
@@ -15,10 +18,19 @@ Jeu::~Jeu()
 }
 
 void Jeu::readText(int i) {
-    std::cout << i << "\n";
+
     // read text into buffer
+    string path = "text/" + to_string(i) + ".txt";
+    ifstream myfile(path);
+    string line;
+    vector<string> myLines;
+    while (getline(myfile, line))
+    {
+        myLines.push_back(line);
+    }
 
     // parse text into a comportement tree
+
 
     // start going through the tree ?
 }
