@@ -20,6 +20,21 @@ Monstre::Monstre(string new_nom, int new_pv, int new_force,
     equiper_armure(new_armure);
 }
 
+Monstre::Monstre(string new_nom, int new_pv, int new_force){
+
+
+    set_nom(new_nom);
+    set_pv(new_pv);
+    set_force(new_force);
+    set_endurance(0);
+    set_vitesse(0);
+    set_agilite(0);
+    set_arcanisme(0);
+    set_mana(0);
+    //equiper_arme(new_arme);
+    //equiper_armure(new_armure);
+}
+
 int Monstre::deciderAction(vector<Personnage *> liste_personnage_present, int statut){
 
     for(Personnage *p : liste_personnage_present){   

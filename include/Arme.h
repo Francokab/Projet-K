@@ -11,6 +11,7 @@ public:
     Arme();
     Arme(std::string nom_, int prix_, int poids_, int attaque_);
     Arme(int attaque_);
+    Arme(std::string nom_, int attaque_);
     ~Arme();
 
     int attaque;
