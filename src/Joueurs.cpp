@@ -2,12 +2,26 @@
 #include "monstre.h"
 #include "civil.h"
 
-#pragma once
-
 #define EXPLORATION 0
 #define BATTLE 1
 
 using namespace std;
+
+Joueurs::Joueurs(string new_nom, int new_pv, int new_force,
+    int new_endurance, int new_vitesse, int new_agilite,
+    int new_arcanisme, int new_mana, Arme new_arme, Armure new_armure){
+
+    set_nom(new_nom);
+    set_pv(new_pv);
+    set_force(new_force);
+    set_endurance(new_endurance);
+    set_vitesse(new_vitesse);
+    set_agilite(new_agilite);
+    set_arcanisme(new_arcanisme);
+    set_mana(new_mana);
+    equiper_arme(new_arme);
+    equiper_armure(new_armure);
+}
 
 int Joueurs::deciderAction(vector<Personnage *> liste_personnage_present, int statut){
     int choix_int = 0;
@@ -36,7 +50,7 @@ int Joueurs::deciderAction(vector<Personnage *> liste_personnage_present, int st
                     }
 
                     if(choix_battle == 1) {attaquer_Un_Autre_Personnage(get_arme_equipe(), p);}
-                    if(choix_battle == 2) {//TODO Implémenter fonction fuir}
+                    if(choix_battle == 2) {}//TODO Implémenter fonction fuir
 
 
                 } else if(dynamic_cast<Civil *> (p) != nullptr){
@@ -46,8 +60,9 @@ int Joueurs::deciderAction(vector<Personnage *> liste_personnage_present, int st
                     //C'est un joueur
 
                 }
-                break;
         }
+
+        break;
 
         case EXPLORATION:
         
@@ -70,9 +85,5 @@ int Joueurs::deciderAction(vector<Personnage *> liste_personnage_present, int st
     }
 
 
-
-
-
     return choix_int;
-
 }
