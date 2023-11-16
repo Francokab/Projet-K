@@ -11,7 +11,7 @@ class Joueurs : public Personnage{
 
 public:
 
-    int deciderAction() override;
+    int deciderAction(vector<Personnage *> liste_personnage_present, int statut) override;
 
 };
 

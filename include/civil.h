@@ -10,7 +10,7 @@ using namespace std;
 class Civil : public Personnage{
 
 public:
-    int deciderAction() override;
+    int deciderAction(vector<Personnage *> liste_personnage_present, int statut) override;
 
 };
 

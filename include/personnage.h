@@ -27,11 +27,9 @@ public:
 
     //Operations principales de la classe personnage
     void attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis);
-
     void equiper_arme(Arme new_arme);
     void equiper_armure(Armure new_armure);
-
-    virtual int deciderAction() = 0;
+    virtual int deciderAction(vector<Personnage *> liste_personnage_present, int statut) = 0;
 
     //Getter
     string get_nom(){return nom;}
@@ -42,6 +40,8 @@ public:
     int get_agilite(){return agilite;}
     int get_arcanisme(){return arcanisme;}
     int get_mana(){return mana;}
+    Arme get_arme_equipe() {return arme_equipe;}
+    Armure get_armure_equipe() {return armure_equipe;}
     vector<string> get_competences(){return competences_liste;}
     vector<Consommable *> get_consommables(){return consommables_liste;}
     vector<Arme *> get_armes(){return armes_liste;}

@@ -1,22 +1,77 @@
 #include "joueurs.h"
+#include "monstre.h"
+#include "civil.h"
+
+#pragma once
+
+#define EXPLORATION 0
+#define BATTLE 1
 
 using namespace std;
 
-int Joueurs::deciderAction(){
-    string choix = "";
+int Joueurs::deciderAction(vector<Personnage *> liste_personnage_present, int statut){
     int choix_int = 0;
-    bool exception_present = 1;
-    while(exception_present) {
+    switch(statut){
 
-        //On essaye de pouvoir capter les erreurs dans l'écriture du choix des joueurs dans le terminal
-        cin >> choix;
-        try {
-            int choix_int = stoi(choix); 
-            exception_present = 0;
-        } catch (exception()) {
-            cout << "N'utiliser que 1 ou 2." << endl;
+        case BATTLE:
+            
+            for(Personnage *p : liste_personnage_present){
+            //Le but est de trouver tous les types de personnage présents dans la salle
+
+                if(dynamic_cast<Monstre *>(p) != nullptr){
+                    //C'est le monstre à combattre
+                    cout << "Que voulez-vous faire ? Attaquer : 1, Fuir : 2" << endl;
+                    string choix = "";
+                    int choix_battle = 0;
+                    bool exception_present = 1;
+
+                    while(exception_present) {
+                        cin >> choix;
+                        try {
+                            choix_battle = stoi(choix); 
+                            exception_present = 0;
+                        } catch (exception()) {
+                            cout << "N'utiliser que 1 ou 2 en chiffre." << endl;
+                        }
+                    }
+
+                    if(choix_battle == 1) {attaquer_Un_Autre_Personnage(get_arme_equipe(), p);}
+                    if(choix_battle == 2) {//TODO Implémenter fonction fuir}
+
+
+                } else if(dynamic_cast<Civil *> (p) != nullptr){
+                    //C'est un civil
+
+                } else {
+                    //C'est un joueur
+
+                }
+                break;
         }
+
+        case EXPLORATION:
+        
+            string choix = "";
+            int choix_int = 0;
+            bool exception_present = 1;
+            while(exception_present) {
+
+                //On essaye de pouvoir capter les erreurs dans l'écriture du choix des joueurs dans le terminal
+                cin >> choix;
+                try {
+                    choix_int = stoi(choix); 
+                    exception_present = 0;
+                } catch (exception()) {
+                    cout << "N'utiliser que 1 ou 2 en chiffre." << endl;
+                }
+            }
+
+            break;
     }
+
+
+
+
 
     return choix_int;
 
