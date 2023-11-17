@@ -211,6 +211,8 @@ void Jeu::startCombat(vector<Personnage*> personnage_en_combat){
         if(p1->get_pv() <= 0) {
             personnages_vivant = false;
         }
+        cout << p1->get_nom() << " a " << p1->get_pv() << " point de vie !" << endl;
+        cout << p2->get_nom() << " a " << p2->get_pv() << " point de vie !" << endl;
     }
 
     for(Personnage *p : personnage_en_combat){
