@@ -9,3 +9,13 @@ Narrateur::~Narrateur()
 {
 
 }
+
+void Narrateur::print_screen(){
+
+
+}
+
+void Narrateur::print_screen(string text){
+
+    
+}

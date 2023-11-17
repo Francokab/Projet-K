@@ -5,9 +5,11 @@
 #include "Armure.h"
 #include "civil.h"
 #include "Narrateur.h"
+
 #include <fstream>
 #include <chrono>
 #include <thread>
+#include <iostream> 
 
 using namespace std;
 
