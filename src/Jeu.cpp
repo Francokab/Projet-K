@@ -170,6 +170,10 @@ void Jeu::readText(int i) {
     // start going through the tree ?
 }
 
+void Jeu::prendreObjet(Personnage* joueur, Objet* objet) {
+    // 
+}
+
 void Jeu::lose(){
     cout << "Tout le courage du monde ne suffit parfois pas..." << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
