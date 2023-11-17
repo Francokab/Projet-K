@@ -3,8 +3,11 @@
 #include "joueurs.h"
 #include "Arme.h"
 #include "Armure.h"
+#include "civil.h"
 #include "Narrateur.h"
 #include <fstream>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -169,8 +172,66 @@ void Jeu::readText(int i) {
 
 void Jeu::lose(){
     cout << "Tout le courage du monde ne suffit parfois pas..." << endl;
-    cout << "Vous êtes mort !!!!!" << endl;
-    cout << "Tin Tin Tin !" << endl;
-    cout << "\n" << endl;
-    cout << "Appuyer sur une touche pour quitter le jeu." << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    cout << "Vous etes mort !!!!!" << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    cout << "RIP" << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    cout << endl;
+    system("pause");
+    game_is_running = false;
+}
+
+void Jeu::win(){
+    cout << "Dans ce monde, peu vous arrive à la cheville." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    cout << "Vous avez gagné !" << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    cout << "A vous la retraite." << endl;
+    cout << endl;
+    system("pause");
+    game_is_running = false;
+}
+
+void Jeu::startCombat(vector<Personnage*> personnage_en_combat){
+
+    bool personnages_vivant = true;
+    Personnage *p1 = personnage_en_combat[0];
+    vector<Personnage *> ennemis1 = {p1};
+
+    Personnage *p2 = personnage_en_combat[1];
+    vector<Personnage *> ennemis2 = {p2};
+
+    while(personnages_vivant){
+        p1->deciderAction(ennemis2, 1);
+        if(p2->get_pv() <= 0){
+            personnages_vivant = false;
+        }
+        p2->deciderAction(ennemis1, 1);
+        if(p1->get_pv() <= 0) {
+            personnages_vivant = false;
+        }
+    }
+
+    for(Personnage *p : personnage_en_combat){
+
+        if(dynamic_cast<Monstre *>(p) != nullptr){
+            //C'est le monstre à combattre
+            if(p->get_pv() <= 0){
+                cout << "Le " << p->get_nom() << " est mort !" << endl;
+            }
+
+
+        } else if(dynamic_cast<Civil *> (p) != nullptr){
+            //C'est un civil
+
+        } else {
+            //C'est un joueur
+            if(p->get_pv() <= 0){
+                this->lose();
+            }
+        }
+    }
+
+
 }

@@ -64,7 +64,7 @@ int Joueurs::deciderAction(vector<Personnage *> liste_personnage_present, int st
                     //C'est un joueur
 
                 }
-        }
+            }
 
         break;
 
