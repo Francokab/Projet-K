@@ -33,6 +33,7 @@ public:
     ~Jeu();
 
     int game_state;  //which file are we on
+    bool game_is_running;
     vector<Objet*> vector_objet;
     vector<Personnage*> vector_personnage;
     list<string> list_text;

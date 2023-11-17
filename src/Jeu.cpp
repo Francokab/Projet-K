@@ -9,6 +9,7 @@ using namespace std;
 Jeu::Jeu()
 {
     game_state = 0;
+    game_is_running = true;
     //list_objet = list<Objet>();
     //list_personnage = list<Personnage>();
     // joueur = Joueurs();
@@ -18,6 +19,19 @@ Jeu::Jeu()
 Jeu::~Jeu()
 {
 
+}
+
+void Jeu::start() {
+    // Initialisation de truc
+
+    //creation de personnage
+
+    while (game_is_running) {
+        // Do an operation
+        OperationToDo operation_to_do = vector_to_do.front();
+
+        // switch
+    }
 }
 
 void Jeu::readText(int i) {
