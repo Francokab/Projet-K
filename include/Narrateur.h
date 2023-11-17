@@ -3,6 +3,10 @@
 
 #pragma once
 
+#include <iostream>
+
+using namespace std;
+
 class Narrateur
 {
 public:
@@ -11,6 +15,7 @@ public:
 
     void choix_joueur();
     void print_screen();
+    void print_screen(string text);
 
 private:
 

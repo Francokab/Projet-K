@@ -1,7 +1,9 @@
 #include "Jeu.h"
 #include "monstre.h"
+#include "joueurs.h"
 #include "Arme.h"
 #include "Armure.h"
+#include "Narrateur.h"
 #include <fstream>
 
 using namespace std;
@@ -10,9 +12,11 @@ Jeu::Jeu()
 {
     game_state = 0;
     game_is_running = true;
-    //list_objet = list<Objet>();
-    //list_personnage = list<Personnage>();
-    // joueur = Joueurs();
+    vector<Objet*> vector_objet = vector<Objet*>();
+    vector<Personnage*> vector_personnage = vector<Personnage*>();
+    list<string> list_text = list<string>();
+    vector<OperationToDo> vector_to_do = vector<OperationToDo>();
+    Narrateur narrateur = Narrateur();
 
 }
 
@@ -22,19 +26,66 @@ Jeu::~Jeu()
 }
 
 void Jeu::start() {
+    string text;
+    vector<int> vector_path;
+
     // Initialisation de truc
 
-    //creation de personnage
+    // creation de personnage
 
+    // the game start
     while (game_is_running) {
         // Do an operation
         OperationToDo operation_to_do = vector_to_do.front();
 
         // switch
+        switch (operation_to_do.operation)
+        {
+        case TEXT:
+            text = *((string*)operation_to_do.pointer_1);
+            narrateur.print_screen(text);
+            break;
+
+        case COMBAT:
+            startCombat({&joueur, ((Personnage*)operation_to_do.pointer_1)});
+            break;
+
+        case ARME:
+            prendreObjet(&joueur, ((Objet*)operation_to_do.pointer_1));
+            break;
+
+        case ARMURE:
+            prendreObjet(&joueur, ((Objet*)operation_to_do.pointer_1));
+            break;
+
+        case GO:
+            lose();
+            break;
+
+        case PATH:
+            vector_path =  *((vector<int>*)operation_to_do.pointer_1);
+            if (vector_path.size() == 2) {
+                if (vector_path[0] == vector_path[1]) {
+                    //go to path 0 and break
+                }
+            }
+            // demand input (with max vector_path.size()) and then go there and break
+            break;
+
+        case VICTOIRE:
+            win();
+            break;
+        
+        default:
+            break;
+        }
+
     }
 }
 
 void Jeu::readText(int i) {
+    // flush all previous operation to do
+    vector_to_do.clear();
 
     // read text into buffer
     string path = "text/" + to_string(i) + ".txt";
