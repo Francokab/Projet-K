@@ -101,3 +101,11 @@ void Jeu::readText(int i) {
 
     // start going through the tree ?
 }
+
+void Jeu::lose(){
+    cout << "Tout le courage du monde ne suffit parfois pas..." << endl;
+    cout << "Vous êtes mort !!!!!" << endl;
+    cout << "Tin Tin Tin !" << endl;
+    cout << "\n" << endl;
+    cout << "Appuyer sur une touche pour quitter le jeu." << endl;
+}
