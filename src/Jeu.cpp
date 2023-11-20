@@ -9,7 +9,8 @@
 #include <fstream>
 #include <chrono>
 #include <thread>
-#include <iostream> 
+#include <iostream>
+#include <typeinfo>
 
 using namespace std;
 
@@ -75,6 +76,8 @@ void Jeu::start() {
                 }
             }
             // demand input (with max vector_path.size()) and then go there and break
+
+            delete &vector_path;
             break;
 
         case VICTOIRE:
@@ -173,28 +176,29 @@ void Jeu::readText(int i) {
 }
 
 void Jeu::prendreObjet(Personnage* joueur, Objet* objet) {
-    // 
+    if (typeid(*objet) == typeid(Arme)) {
+        joueur->add_arme((Arme *)objet);
+    }
+    else if (typeid(*objet) == typeid(Armure)) {
+        joueur->add_armure((Armure *)objet);
+    }
+    else if (typeid(*objet) == typeid(Consommable)) {
+        joueur->add_consommable((Consommable *)objet);
+    }
+    else {
+        throw invalid_argument("objet is not arme, armure or consommable");
+    }
+    narrateur.prendre_objet(joueur, objet);
 }
 
 void Jeu::lose(){
-    cout << "Tout le courage du monde ne suffit parfois pas..." << endl;
-    this_thread::sleep_for(chrono::milliseconds(2000));
-    cout << "Vous etes mort !!!!!" << endl;
-    this_thread::sleep_for(chrono::milliseconds(2000));
-    cout << "RIP" << endl;
-    this_thread::sleep_for(chrono::milliseconds(2000));
-    cout << endl;
+    narrateur.lose();
     system("pause");
     game_is_running = false;
 }
 
 void Jeu::win(){
-    cout << "Dans ce monde, peu vous arrive à la cheville." << endl;
-    this_thread::sleep_for(chrono::milliseconds(1000));
-    cout << "Vous avez gagné !" << endl;
-    this_thread::sleep_for(chrono::milliseconds(1000));
-    cout << "A vous la retraite." << endl;
-    cout << endl;
+    narrateur.win();
     system("pause");
     game_is_running = false;
 }

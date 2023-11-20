@@ -4,6 +4,8 @@
 #pragma once
 
 #include <iostream>
+#include "personnage.h"
+#include "Objet.h"
 
 using namespace std;
 
@@ -16,6 +18,9 @@ public:
     void choix_joueur();
     void print_screen();
     void print_screen(string text);
+    void prendre_objet(Personnage* joueur, Objet* objet);
+    void win();
+    void lose();
 
 private:
 

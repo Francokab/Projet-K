@@ -61,15 +61,15 @@ public:
     //Pour les listes de competences et des objets,
     //il nous semble plus pertinent de mettre les setters sous la
     //forme d'un push_back, d'un pop ou d'une remise à zéro.
-    void add_competence(string competence);
-    void add_consommable(Consommable conso);
-    void add_arme(Arme arme);
-    void add_armure(Armure armure);
+    void add_competence(string* competence);
+    void add_consommable(Consommable* conso);
+    void add_arme(Arme* arme);
+    void add_armure(Armure* armure);
 
-    void del_competence(string competence);
-    void del_consommable(Consommable conso);
-    void del_arme(Arme arme);
-    void del_armure(Armure armure);
+    void del_competence(string* competence);
+    void del_consommable(Consommable* conso);
+    void del_arme(Arme* arme);
+    void del_armure(Armure* armure);
 
     void raz_competences();
     void raz_consommables();
