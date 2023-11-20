@@ -1,5 +1,5 @@
 #include "Narrateur.h"
-#include "personnage.h"
+#include "Personnage.h"
 #include "Objet.h"
 #include <thread>
 
@@ -13,21 +13,21 @@ Narrateur::~Narrateur()
 
 }
 
-void Narrateur::choix_joueur()
+void Narrateur::choixJoueur()
 {
 
 }
 
-void Narrateur::print_screen()
+void Narrateur::printScreen()
 {
 
 }
 
-void Narrateur::print_screen(string text){
+void Narrateur::printScreen(string text){
     cout << text << endl;
 }
 
-void Narrateur::prendre_objet(Personnage* joueur, Objet* objet) {
+void Narrateur::prendreObjet(Personnage* joueur, Objet* objet) {
     cout << joueur->get_nom() << "prend l'objet" << objet->nom << endl;
 }
 

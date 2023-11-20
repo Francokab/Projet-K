@@ -12,9 +12,9 @@
 #include "Consommable.h"
 #include "Magie.h"
 
-#include "personnage.h"
-#include "monstre.h"
-#include "civil.h"
-#include "joueurs.h"
+#include "Personnage.h"
+#include "Monstre.h"
+#include "Civil.h"
+#include "Joueurs.h"
 
 #endif

@@ -17,7 +17,7 @@ int main() {
 
   jeu.readText(4);
 
-  for (OperationToDo op: jeu.vector_to_do) {
+  for (OperationToDo op: jeu.vectorToDo) {
     cout << op.operation << " " << op.pointer_1 << "\n"; 
   }
 

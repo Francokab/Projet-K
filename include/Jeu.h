@@ -4,9 +4,9 @@
 #pragma once
 
 #include "Objet.h"
-#include "personnage.h"
+#include "Personnage.h"
 #include "Narrateur.h"
-#include "joueurs.h"
+#include "Joueurs.h"
 #include <vector>
 #include <list>
 
@@ -34,18 +34,18 @@ public:
     Jeu();
     ~Jeu();
 
-    int game_state;  //which file are we on
-    bool game_is_running;
-    vector<Objet*> vector_objet;
-    vector<Personnage*> vector_personnage;
-    list<string> list_text;
-    vector<OperationToDo> vector_to_do;
+    int gameState;  //which file are we on
+    bool gameIsRunning;
+    vector<Objet*> vectorObjet;
+    vector<Personnage*> vectorPersonnage;
+    list<string> listText;
+    vector<OperationToDo> vectorToDo;
     Narrateur narrateur;
     Joueurs joueur;
 
 
     void start();
-    void startCombat(vector<Personnage*> personnage_en_combat);
+    void startCombat(vector<Personnage*> personnageEnCombat);
     void prendreObjet(Personnage* joueur, Objet* objet);
     void lose();
     void win();

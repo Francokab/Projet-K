@@ -1,9 +1,9 @@
 #include "Jeu.h"
-#include "monstre.h"
-#include "joueurs.h"
+#include "Monstre.h"
+#include "Joueurs.h"
 #include "Arme.h"
 #include "Armure.h"
-#include "civil.h"
+#include "Civil.h"
 #include "Narrateur.h"
 
 #include <fstream>
@@ -16,12 +16,12 @@ using namespace std;
 
 Jeu::Jeu()
 {
-    game_state = 0;
-    game_is_running = true;
-    vector<Objet*> vector_objet = vector<Objet*>();
-    vector<Personnage*> vector_personnage = vector<Personnage*>();
-    list<string> list_text = list<string>();
-    vector<OperationToDo> vector_to_do = vector<OperationToDo>();
+    gameState = 0;
+    gameIsRunning = true;
+    vector<Objet*> vectorObjet = vector<Objet*>();
+    vector<Personnage*> vectorPersonnage = vector<Personnage*>();
+    list<string> listText = list<string>();
+    vector<OperationToDo> vectorToDo = vector<OperationToDo>();
     Narrateur narrateur = Narrateur();
 
 }
@@ -40,16 +40,16 @@ void Jeu::start() {
     // creation de personnage
 
     // the game start
-    while (game_is_running) {
+    while (gameIsRunning) {
         // Do an operation
-        OperationToDo operation_to_do = vector_to_do.front();
+        OperationToDo operation_to_do = vectorToDo.front();
 
         // switch
         switch (operation_to_do.operation)
         {
         case TEXT:
             text = *((string*)operation_to_do.pointer_1);
-            narrateur.print_screen(text);
+            narrateur.printScreen(text);
             break;
 
         case COMBAT:
@@ -93,7 +93,7 @@ void Jeu::start() {
 
 void Jeu::readText(int i) {
     // flush all previous operation to do
-    vector_to_do.clear();
+    vectorToDo.clear();
 
     // read text into buffer
     string path = "text/" + to_string(i) + ".txt";
@@ -112,33 +112,33 @@ void Jeu::readText(int i) {
     for (auto it = myLines.begin(); it != myLines.end(); ++it) {
         string line_ = *it; 
         if (line_ == "*COMBAT*") {
-            vector_personnage.push_back(new Monstre(*(it+1), stoi(*(it+2)), stoi(*(it+3))));
+            vectorPersonnage.push_back(new Monstre(*(it+1), stoi(*(it+2)), stoi(*(it+3))));
             operation.operation = COMBAT;
-            operation.pointer_1 = vector_personnage.back();
-            vector_to_do.push_back(operation);
+            operation.pointer_1 = vectorPersonnage.back();
+            vectorToDo.push_back(operation);
             it = it + 3;
             new_text_operation = true;
         }
         else if (line_ == "*ARME*") {
-            vector_objet.push_back(new Arme(*(it+1), stoi(*(it+2))));
+            vectorObjet.push_back(new Arme(*(it+1), stoi(*(it+2))));
             operation.operation = ARME;
-            operation.pointer_1 = vector_objet.back();
-            vector_to_do.push_back(operation);
+            operation.pointer_1 = vectorObjet.back();
+            vectorToDo.push_back(operation);
             it = it + 2;
             new_text_operation = true;
         }
         else if (line_ == "*ARMURE*") {
-            vector_objet.push_back(new Armure(*(it+1), stoi(*(it+2))));
+            vectorObjet.push_back(new Armure(*(it+1), stoi(*(it+2))));
             operation.operation = ARMURE;
-            operation.pointer_1 = vector_objet.back();
-            vector_to_do.push_back(operation);
+            operation.pointer_1 = vectorObjet.back();
+            vectorToDo.push_back(operation);
             it = it + 2;
             new_text_operation = true;
         }
         else if (line_ == "*GO*") {
             operation.operation = GO;
             operation.pointer_1 = nullptr;
-            vector_to_do.push_back(operation);
+            vectorToDo.push_back(operation);
             new_text_operation = true;
         }
         else if (line_ == "*PATH*") {
@@ -148,26 +148,26 @@ void Jeu::readText(int i) {
 
             operation.operation = PATH;
             operation.pointer_1 = vector_path;
-            vector_to_do.push_back(operation);
+            vectorToDo.push_back(operation);
             it = it + 2;
             new_text_operation = true;
         }
         else if (line_ == "*VICTOIRE*") {
             operation.operation = VICTOIRE;
             operation.pointer_1 = nullptr;
-            vector_to_do.push_back(operation);
+            vectorToDo.push_back(operation);
             new_text_operation = true;
         }
         else {
             if (new_text_operation) {
-                list_text.push_back(line_);
+                listText.push_back(line_);
                 operation.operation = TEXT;
-                operation.pointer_1 = &list_text.back();
-                vector_to_do.push_back(operation);
+                operation.pointer_1 = &listText.back();
+                vectorToDo.push_back(operation);
                 new_text_operation = false;
             }
             else {
-                list_text.back() = list_text.back() + line_;
+                listText.back() = listText.back() + line_;
             }
         }
     }
@@ -188,28 +188,28 @@ void Jeu::prendreObjet(Personnage* joueur, Objet* objet) {
     else {
         throw invalid_argument("objet is not arme, armure or consommable");
     }
-    narrateur.prendre_objet(joueur, objet);
+    narrateur.prendreObjet(joueur, objet);
 }
 
 void Jeu::lose(){
     narrateur.lose();
     system("pause");
-    game_is_running = false;
+    gameIsRunning = false;
 }
 
 void Jeu::win(){
     narrateur.win();
     system("pause");
-    game_is_running = false;
+    gameIsRunning = false;
 }
 
-void Jeu::startCombat(vector<Personnage*> personnage_en_combat){
+void Jeu::startCombat(vector<Personnage*> personnageEnCombat){
 
     bool personnages_vivant = true;
-    Personnage *p1 = personnage_en_combat[0];
+    Personnage *p1 = personnageEnCombat[0];
     vector<Personnage *> ennemis1 = {p1};
 
-    Personnage *p2 = personnage_en_combat[1];
+    Personnage *p2 = personnageEnCombat[1];
     vector<Personnage *> ennemis2 = {p2};
 
     while(personnages_vivant){
@@ -225,7 +225,7 @@ void Jeu::startCombat(vector<Personnage*> personnage_en_combat){
         cout << p2->get_nom() << " a " << p2->get_pv() << " point de vie !" << endl;
     }
 
-    for(Personnage *p : personnage_en_combat){
+    for(Personnage *p : personnageEnCombat){
 
         if(dynamic_cast<Monstre *>(p) != nullptr){
             //C'est le monstre à combattre

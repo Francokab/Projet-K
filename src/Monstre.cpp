@@ -1,5 +1,5 @@
-#include "monstre.h"
-#include "civil.h"
+#include "Monstre.h"
+#include "Civil.h"
 
 using namespace std;
 

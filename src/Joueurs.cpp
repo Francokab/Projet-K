@@ -1,6 +1,6 @@
-#include "joueurs.h"
-#include "monstre.h"
-#include "civil.h"
+#include "Joueurs.h"
+#include "Monstre.h"
+#include "Civil.h"
 
 #define EXPLORATION 0
 #define BATTLE 1

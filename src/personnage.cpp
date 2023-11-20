@@ -1,4 +1,4 @@
-#include "personnage.h"
+#include "Personnage.h"
 
 using namespace std;
 

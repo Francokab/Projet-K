@@ -4,7 +4,7 @@
 #pragma once
 
 #include <iostream>
-#include "personnage.h"
+#include "Personnage.h"
 #include "Objet.h"
 
 using namespace std;
@@ -15,10 +15,10 @@ public:
     Narrateur();
     ~Narrateur();
 
-    void choix_joueur();
-    void print_screen();
-    void print_screen(string text);
-    void prendre_objet(Personnage* joueur, Objet* objet);
+    void choixJoueur();
+    void printScreen();
+    void printScreen(string text);
+    void prendreObjet(Personnage* joueur, Objet* objet);
     void win();
     void lose();
 
