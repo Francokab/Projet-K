@@ -13,9 +13,30 @@ Narrateur::~Narrateur()
 
 }
 
-void Narrateur::choixJoueur()
+int Narrateur::choixJoueurInt()
 {
+    int choix;
+    cin >> choix;
+    return choix;
+}
 
+int Narrateur::choixJoueurInt(string text_to_print)
+{
+    printScreen(text_to_print);
+    return choixJoueurInt();
+}
+
+string Narrateur::choixJoueurString()
+{
+    string choix;
+    cin >> choix;
+    return choix;
+}
+
+string Narrateur::choixJoueurString(string text_to_print)
+{
+    printScreen(text_to_print);
+    return choixJoueurString();
 }
 
 void Narrateur::printScreen()

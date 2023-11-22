@@ -33,11 +33,12 @@ Jeu::~Jeu()
 
 void Jeu::start() {
     string text;
-    vector<int> vector_path;
+    vector<int>* vector_path;
 
     // Initialisation de truc
 
     // creation de personnage
+    creationDePersonnage();
 
     // the game start
     while (gameIsRunning) {
@@ -69,15 +70,15 @@ void Jeu::start() {
             break;
 
         case PATH:
-            vector_path =  *((vector<int>*)operation_to_do.pointer_1);
-            if (vector_path.size() == 2) {
+            vector_path = (vector<int>*)operation_to_do.pointer_1;
+            if (vector_path->size() == 2) {
                 if (vector_path[0] == vector_path[1]) {
                     //go to path 0 and break
                 }
             }
             // demand input (with max vector_path.size()) and then go there and break
 
-            delete &vector_path;
+            delete vector_path;
             break;
 
         case VICTOIRE:
@@ -173,6 +174,16 @@ void Jeu::readText(int i) {
     }
 
     // start going through the tree ?
+}
+
+void Jeu::creationDePersonnage()
+{
+    // choix de classe
+    
+    // choix de nom
+    // choix d'atribut ?
+    // classe en plus ?
+    // choix de race ?
 }
 
 void Jeu::prendreObjet(Personnage* joueur, Objet* objet) {

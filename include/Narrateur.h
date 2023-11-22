@@ -15,7 +15,10 @@ public:
     Narrateur();
     ~Narrateur();
 
-    void choixJoueur();
+    int choixJoueurInt();
+    int choixJoueurInt(string text_to_print);
+    string choixJoueurString();
+    string choixJoueurString(string text_to_print);
     void printScreen();
     void printScreen(string text);
     void prendreObjet(Personnage* joueur, Objet* objet);

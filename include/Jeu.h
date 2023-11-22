@@ -50,6 +50,7 @@ public:
     void lose();
     void win();
     void readText(int i);
+    void creationDePersonnage();
 
 
 private:
