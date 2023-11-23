@@ -17,12 +17,12 @@ public:
     Personnage rodeur();
     Personnage mage();
 
-    Objet epee();
-    Objet dagues();
-    Objet baton();
-    Objet cuirasse();
-    Objet cuir();
-    Objet tissus();
+    Arme epee();
+    Arme dagues();
+    Arme baton();
+    Armure cuirasse();
+    Armure cuir();
+    Armure tissus();
 
     
 
