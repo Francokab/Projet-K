@@ -179,7 +179,7 @@ void Jeu::creationDePersonnage()
     // choix de classe
     cout << "Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3." << endl;
     int choix = 0;
-    cin << choix;
+    cin >> choix;
     // choix de nom
     // choix d'atribut ?
     // classe en plus ?

@@ -29,8 +29,8 @@ Personnage Catalogue::rodeur(){
 }
 
 Personnage Catalogue::mage(){
-    Arme baton = baton();
-    Armure tissus = tissus();
+    Arme baton = Catalogue::baton();
+    Armure tissus = Catalogue::tissus();
     Personnage joueur = Personnage("Joueur", 100, 3, 5, 5, 4, 8, 100, baton, tissus);
 
     return joueur;
@@ -56,4 +56,14 @@ Armure Catalogue::cuirasse(){
 
     Armure cuirasse = Armure("Cuirasse en maille", 75, 15, 7);
     return cuirasse;
+}
+
+Armure Catalogue::cuir()
+{
+    return Armure();
+}
+
+Armure Catalogue::tissus()
+{
+    return Armure();
 }

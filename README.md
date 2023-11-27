@@ -8,7 +8,7 @@
         - avec nombre de personnage arbitraire
         - avec nombre de joueur arbitraire ?
     - Faire l'initialisation de la partie au debut de Jeu.start
-    - Remplir le catalogue
+    - Remplir le catalogue (Cuir et tissus)
     - implementer le changement de path
     - ecrire le constructeur de joueur
 
