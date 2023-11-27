@@ -33,6 +33,21 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force,
     statistiques["Nombre de sorts utilisés"] = 0;
 }
 
+Personnage::Personnage(string new_nom, int new_pv, int new_force){
+
+
+    set_nom(new_nom);
+    set_pv(new_pv);
+    set_force(new_force);
+    set_endurance(0);
+    set_vitesse(0);
+    set_agilite(0);
+    set_arcanisme(0);
+    set_mana(0);
+    //equiper_arme(new_arme);
+    //equiper_armure(new_armure);
+}
+
 Personnage::~Personnage() {
     
 }
@@ -52,4 +67,52 @@ void Personnage::attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis){
     int degats_net = (degats_brut - ennemis->armure_equipe.defense)/ennemis->endurance;
     ennemis->set_pv(pv_ennemie - degats_net);
 
+}
+
+void Personnage::add_competence(string *competence)
+{
+}
+
+void Personnage::add_consommable(Consommable* conso) {
+
+}
+
+void Personnage::add_arme(Arme *arme)
+{
+}
+
+void Personnage::add_armure(Armure *armure)
+{
+}
+
+void Personnage::del_competence(string *competence)
+{
+}
+
+void del_consommable(Consommable* conso)
+{
+}
+
+void del_arme(Arme* arme)
+{
+}
+
+void del_armure(Armure* armure)
+{
+}
+
+void raz_competences()
+{
+}
+
+void raz_consommables()
+{
+}
+
+void raz_armes()
+{
+}
+
+void raz_armures()
+{
 }

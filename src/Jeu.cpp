@@ -1,9 +1,6 @@
 #include "Jeu.h"
-#include "Monstre.h"
-#include "Joueurs.h"
 #include "Arme.h"
 #include "Armure.h"
-#include "Civil.h"
 #include "Narrateur.h"
 
 #include <fstream>
@@ -54,15 +51,16 @@ void Jeu::start() {
             break;
 
         case COMBAT:
-            startCombat({&joueur, ((Personnage*)operation_to_do.pointer_1)});
+            //((Personnage*)operation_to_do.pointer_1)
+            startCombat({&joueurHumain, &joueurIA});
             break;
 
         case ARME:
-            prendreObjet(&joueur, ((Objet*)operation_to_do.pointer_1));
+            prendreObjet(joueurHumain.vectorPersonnage[0], ((Objet*)operation_to_do.pointer_1));
             break;
 
         case ARMURE:
-            prendreObjet(&joueur, ((Objet*)operation_to_do.pointer_1));
+            prendreObjet(joueurHumain.vectorPersonnage[0], ((Objet*)operation_to_do.pointer_1));
             break;
 
         case GO:
@@ -113,7 +111,7 @@ void Jeu::readText(int i) {
     for (auto it = myLines.begin(); it != myLines.end(); ++it) {
         string line_ = *it; 
         if (line_ == "*COMBAT*") {
-            vectorPersonnage.push_back(new Monstre(*(it+1), stoi(*(it+2)), stoi(*(it+3))));
+            vectorPersonnage.push_back(new Personnage(*(it+1), stoi(*(it+2)), stoi(*(it+3))));
             operation.operation = COMBAT;
             operation.pointer_1 = vectorPersonnage.back();
             vectorToDo.push_back(operation);
@@ -216,47 +214,41 @@ void Jeu::win(){
     gameIsRunning = false;
 }
 
-void Jeu::startCombat(vector<Personnage*> personnageEnCombat){
+void Jeu::startCombat(vector<Joueur*> joueurEnCombat){
 
-    bool personnages_vivant = true;
-    Personnage *p1 = personnageEnCombat[0];
+    bool j1_vivant = true;
+    Joueur* j1 = joueurEnCombat[0];
+    Personnage *p1 = j1->vectorPersonnage[0];
     vector<Personnage *> ennemis1 = {p1};
 
-    Personnage *p2 = personnageEnCombat[1];
+    bool j2_vivant = true;
+    Joueur* j2 = joueurEnCombat[0];
+    Personnage *p2 = j2->vectorPersonnage[0];
     vector<Personnage *> ennemis2 = {p2};
 
-    while(personnages_vivant){
-        p1->deciderAction(ennemis2, 1);
+    while(j1_vivant && j2_vivant){
+        j1->deciderAction(ennemis2, 1);
         if(p2->get_pv() <= 0){
-            personnages_vivant = false;
+            j2_vivant = false;
         }
-        p2->deciderAction(ennemis1, 1);
+        j2->deciderAction(ennemis1, 1);
         if(p1->get_pv() <= 0) {
-            personnages_vivant = false;
+            j1_vivant = false;
         }
         cout << p1->get_nom() << " a " << p1->get_pv() << " point de vie !" << endl;
         cout << p2->get_nom() << " a " << p2->get_pv() << " point de vie !" << endl;
     }
 
-    for(Personnage *p : personnageEnCombat){
-
-        if(dynamic_cast<Monstre *>(p) != nullptr){
-            //C'est le monstre à combattre
-            if(p->get_pv() <= 0){
-                cout << "Le " << p->get_nom() << " est mort !" << endl;
-            }
-
-
-        } else if(dynamic_cast<Civil *> (p) != nullptr){
-            //C'est un civil
-
-        } else {
-            //C'est un joueur
-            if(p->get_pv() <= 0){
-                this->lose();
-            }
-        }
+    if(!j2_vivant){
+        //C'est le monstre à combattre
+        cout << "Le " << p2->get_nom() << " est mort !" << endl;
     }
-
+    else if(!j1_vivant){
+        this->lose();
+    }
+    else {
+        cout << "Error, why are we outside the combat while ??" << endl;
+        this->lose();
+    }
 
 }

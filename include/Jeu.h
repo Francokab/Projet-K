@@ -6,7 +6,7 @@
 #include "Objet.h"
 #include "Personnage.h"
 #include "Narrateur.h"
-#include "Joueurs.h"
+#include "Joueur.h"
 #include <vector>
 #include <list>
 
@@ -41,11 +41,13 @@ public:
     list<string> listText;
     vector<OperationToDo> vectorToDo;
     Narrateur narrateur;
-    Joueurs joueur;
+    JoueurHumain joueurHumain;
+    JoueurMonstre joueurIA;
+    
 
 
     void start();
-    void startCombat(vector<Personnage*> personnageEnCombat);
+    void startCombat(vector<Joueur*> joueurEnCombat);
     void prendreObjet(Personnage* joueur, Objet* objet);
     void lose();
     void win();

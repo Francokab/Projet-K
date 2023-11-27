@@ -1,6 +1,5 @@
 #include "Catalogue.h"
-#include "joueurs.h"
-#include "personnage.h"
+#include "Personnage.h"
 
 Catalogue::Catalogue()
 {

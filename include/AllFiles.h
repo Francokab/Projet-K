@@ -13,8 +13,6 @@
 #include "Magie.h"
 
 #include "Personnage.h"
-#include "Monstre.h"
-#include "Civil.h"
-#include "Joueurs.h"
+#include "Joueur.h"
 
 #endif

@@ -21,6 +21,7 @@ public:
     Personnage(string new_nom, int new_pv, int new_force,
     int new_endurance, int new_vitesse, int new_agilite,
     int new_arcanisme, int new_mana, Arme new_arme, Armure new_armure);
+    Personnage(string new_nom, int new_pv, int new_force);
 
     //Destructor
     ~Personnage();
@@ -29,7 +30,6 @@ public:
     void attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis);
     void equiper_arme(Arme new_arme);
     void equiper_armure(Armure new_armure);
-    virtual int deciderAction(vector<Personnage *> liste_personnage_present, int statut) = 0;
 
     //Getter
     string get_nom(){return nom;}
