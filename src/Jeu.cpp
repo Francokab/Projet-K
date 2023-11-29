@@ -194,6 +194,7 @@ void Jeu::creationDePersonnage()
     default:
         throw invalid_argument("out of bound choice");
     }
+    joueurHumain.addPersonnage(personnageJoueur);
     // choix de nom
     // choix d'atribut ?
     // classe en plus ?

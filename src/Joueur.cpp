@@ -14,6 +14,11 @@ Joueur::~Joueur()
 
 }
 
+void Joueur::addPersonnage(Personnage *personnage)
+{
+    vectorPersonnage.push_back(personnage);
+}
+
 int JoueurMonstre::deciderAction(vector<Personnage *> liste_personnage_present, int statut){
 
     for(Personnage *p : liste_personnage_present){   

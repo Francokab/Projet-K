@@ -14,6 +14,7 @@ public:
 
     vector<Personnage*> vectorPersonnage;
     virtual int deciderAction(vector<Personnage *> liste_personnage_present, int statut) = 0;
+    void addPersonnage(Personnage* personnage);
 
 private:
 
