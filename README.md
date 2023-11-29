@@ -2,15 +2,21 @@
  Jeu dont vous êtes le héros
 
 # TODO
-    - implementer creation de personngae
+    - Faire l'initialisation de la partie au debut de Jeu.start
+    - implementer le changement de path
+    - ecrire le constructeur de joueur
+    - Remplir le catalogue (Cuir et tissus)
     - Implementer les add et del conso, arme et armure
+    - Implementer les compétence
+        - avec des ENUM ?
     - créer un meilleur start combat
         - avec nombre de personnage arbitraire
         - avec nombre de joueur arbitraire ?
-    - Faire l'initialisation de la partie au debut de Jeu.start
-    - Remplir le catalogue (Cuir et tissus)
-    - implementer le changement de path
-    - ecrire le constructeur de joueur
+    - ajouter plus d'option dans creation de personnage
+        - plus de classe
+        - choix d'atribut
+        - choix de race
+        - choix de magie
 
 # Nom des variables, Classe et autre
     UneClasse

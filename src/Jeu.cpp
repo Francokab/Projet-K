@@ -194,8 +194,11 @@ void Jeu::creationDePersonnage()
     default:
         throw invalid_argument("out of bound choice");
     }
+    vectorPersonnage.push_back(personnageJoueur);
     joueurHumain.addPersonnage(personnageJoueur);
     // choix de nom
+    string choixNom = narrateur.choixJoueurString("Choisis ton nom :");
+    personnageJoueur->set_nom(choixNom);
     // choix d'atribut ?
     // classe en plus ?
     // choix de race ?
