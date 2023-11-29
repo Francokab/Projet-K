@@ -1,4 +1,5 @@
 #include "Joueur.h"
+#include <algorithm>
 #define EXPLORATION 0
 #define BATTLE 1
 
@@ -17,6 +18,19 @@ Joueur::~Joueur()
 void Joueur::addPersonnage(Personnage *personnage)
 {
     vectorPersonnage.push_back(personnage);
+}
+
+void Joueur::removePersonnage(Personnage *personnage)
+{
+    std::vector<Personnage*>::iterator position = std::find(vectorPersonnage.begin(), vectorPersonnage.end(), personnage);
+    if (position != vectorPersonnage.end()) { // == vectorPersonnage.end() means the element was not found
+        vectorPersonnage.erase(position);
+    }
+}
+
+void Joueur::removeAllPersonage()
+{
+    vectorPersonnage.clear();
 }
 
 int JoueurMonstre::deciderAction(vector<Personnage *> liste_personnage_present, int statut){

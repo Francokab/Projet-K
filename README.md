@@ -2,7 +2,6 @@
  Jeu dont vous êtes le héros
 
 # TODO
-    - Faire l'initialisation de la partie au debut de Jeu.start
     - implementer le changement de path
     - ecrire le constructeur de joueur
     - Remplir le catalogue (Cuir et tissus)

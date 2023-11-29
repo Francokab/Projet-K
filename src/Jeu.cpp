@@ -2,6 +2,9 @@
 #include "Arme.h"
 #include "Armure.h"
 #include "Narrateur.h"
+#include "Joueur.h"
+#include "Catalogue.h"
+#include <algorithm>
 
 #include <fstream>
 #include <chrono>
@@ -13,14 +16,16 @@ using namespace std;
 
 Jeu::Jeu()
 {
-    gameState = 0;
+    gameState = 0;  //which file are we on
     gameIsRunning = true;
-    vector<Objet*> vectorObjet = vector<Objet*>();
-    vector<Personnage*> vectorPersonnage = vector<Personnage*>();
-    list<string> listText = list<string>();
-    vector<OperationToDo> vectorToDo = vector<OperationToDo>();
-    Narrateur narrateur = Narrateur();
-
+    vectorObjet = vector<Objet*>();
+    vectorPersonnage = vector<Personnage*>();
+    listText = list<string>();
+    vectorToDo = vector<OperationToDo>();
+    narrateur = Narrateur();
+    joueurHumain = JoueurHumain();
+    joueurIA =  JoueurMonstre();
+    catalogue = Catalogue();
 }
 
 Jeu::~Jeu()
@@ -51,7 +56,7 @@ void Jeu::start() {
             break;
 
         case COMBAT:
-            //((Personnage*)operation_to_do.pointer_1)
+            joueurIA.addPersonnage((Personnage*)operation_to_do.pointer_1);
             startCombat({&joueurHumain, &joueurIA});
             break;
 
@@ -204,6 +209,17 @@ void Jeu::creationDePersonnage()
     // choix de race ?
 }
 
+void Jeu::killPersonnage(Personnage *personnage)
+{
+    joueurHumain.removePersonnage(personnage);
+    joueurIA.removePersonnage(personnage);
+    std::vector<Personnage*>::iterator position = std::find(vectorPersonnage.begin(), vectorPersonnage.end(), personnage);
+    if (position != vectorPersonnage.end()) {// == vectorPersonnage.end() means the element was not found
+        vectorPersonnage.erase(position);
+    }
+    delete personnage;
+}
+
 void Jeu::prendreObjet(Personnage* joueur, Objet* objet) {
     if (typeid(*objet) == typeid(Arme)) {
         joueur->add_arme((Arme *)objet);
@@ -260,12 +276,13 @@ void Jeu::startCombat(vector<Joueur*> joueurEnCombat){
     if(!j2_vivant){
         //C'est le monstre à combattre
         cout << "Le " << p2->get_nom() << " est mort !" << endl;
+        killPersonnage(p2);
     }
     else if(!j1_vivant){
         this->lose();
     }
     else {
-        cout << "Error, why are we outside the combat while ??" << endl;
+        cout << "Error at the end of the combat ??" << endl;
         this->lose();
     }
 

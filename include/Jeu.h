@@ -55,6 +55,7 @@ public:
     void win();
     void readText(int i);
     void creationDePersonnage();
+    void killPersonnage(Personnage* personnage); // remove Personnage from everything and delete it
 
 
 private:

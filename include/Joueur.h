@@ -15,6 +15,8 @@ public:
     vector<Personnage*> vectorPersonnage;
     virtual int deciderAction(vector<Personnage *> liste_personnage_present, int statut) = 0;
     void addPersonnage(Personnage* personnage);
+    void removePersonnage(Personnage* personnage); // remove the personnage, do not delete
+    void removeAllPersonage(); // remove all personnage, do not delete
 
 private:
 
