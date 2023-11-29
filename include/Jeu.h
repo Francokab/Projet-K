@@ -7,6 +7,7 @@
 #include "Personnage.h"
 #include "Narrateur.h"
 #include "Joueur.h"
+#include "Catalogue.h"
 #include <vector>
 #include <list>
 
@@ -43,6 +44,7 @@ public:
     Narrateur narrateur;
     JoueurHumain joueurHumain;
     JoueurMonstre joueurIA;
+    Catalogue catalogue;
     
 
 

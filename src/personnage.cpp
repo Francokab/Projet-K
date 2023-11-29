@@ -13,7 +13,7 @@ Personnage::Personnage(){
 
 Personnage::Personnage(string new_nom, int new_pv, int new_force,
     int new_endurance, int new_vitesse, int new_agilite,
-    int new_arcanisme, int new_mana, Arme new_arme, Armure new_armure){
+    int new_arcanisme, int new_mana, Arme* new_arme, Armure* new_armure){
 
     nom = new_nom;
     pv = new_pv;
@@ -52,19 +52,19 @@ Personnage::~Personnage() {
     
 }
 
-void Personnage::equiper_arme(Arme new_arme){
+void Personnage::equiper_arme(Arme* new_arme){
     arme_equipe = new_arme;
 }
 
-void Personnage::equiper_armure(Armure new_armure){
+void Personnage::equiper_armure(Armure* new_armure){
     armure_equipe = new_armure;
 }
 
-void Personnage::attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis){
+void Personnage::attaquer_Un_Autre_Personnage(Arme* armes, Personnage* ennemis){
 
     int pv_ennemie = ennemis->get_pv();
-    int degats_brut = armes.attaque*(10 + force);
-    int degats_net = (degats_brut - ennemis->armure_equipe.defense)/ennemis->endurance;
+    int degats_brut = armes->attaque*(10 + force);
+    int degats_net = (degats_brut - ennemis->armure_equipe->defense)/ennemis->endurance;
     ennemis->set_pv(pv_ennemie - degats_net);
 
 }

@@ -20,16 +20,16 @@ public:
     Personnage();
     Personnage(string new_nom, int new_pv, int new_force,
     int new_endurance, int new_vitesse, int new_agilite,
-    int new_arcanisme, int new_mana, Arme new_arme, Armure new_armure);
+    int new_arcanisme, int new_mana, Arme* new_arme, Armure* new_armure);
     Personnage(string new_nom, int new_pv, int new_force);
 
     //Destructor
     ~Personnage();
 
     //Operations principales de la classe personnage
-    void attaquer_Un_Autre_Personnage(Arme armes, Personnage* ennemis);
-    void equiper_arme(Arme new_arme);
-    void equiper_armure(Armure new_armure);
+    void attaquer_Un_Autre_Personnage(Arme* armes, Personnage* ennemis);
+    void equiper_arme(Arme* new_arme);
+    void equiper_armure(Armure* new_armure);
 
     //Getter
     string get_nom(){return nom;}
@@ -40,8 +40,8 @@ public:
     int get_agilite(){return agilite;}
     int get_arcanisme(){return arcanisme;}
     int get_mana(){return mana;}
-    Arme get_arme_equipe() {return arme_equipe;}
-    Armure get_armure_equipe() {return armure_equipe;}
+    Arme* get_arme_equipe() {return arme_equipe;}
+    Armure* get_armure_equipe() {return armure_equipe;}
     vector<string> get_competences(){return competences_liste;}
     vector<Consommable *> get_consommables(){return consommables_liste;}
     vector<Arme *> get_armes(){return armes_liste;}
@@ -90,8 +90,8 @@ private:
     int agilite = 0;
     int arcanisme = 0;
     int mana = 0;
-    Arme arme_equipe;
-    Armure armure_equipe;
+    Arme* arme_equipe;
+    Armure* armure_equipe;
     vector<string> competences_liste;
     vector<Consommable *> consommables_liste;
     vector<Arme *> armes_liste;
