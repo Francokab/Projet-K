@@ -17,7 +17,6 @@ public:
     int defense;
 
 private:
-
 };
 
 #endif

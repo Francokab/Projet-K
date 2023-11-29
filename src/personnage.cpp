@@ -2,9 +2,10 @@
 
 using namespace std;
 
-Personnage::Personnage(){
+Personnage::Personnage()
+{
 
-    //Initialisation des statistiques
+    // Initialisation des statistiques
     statistiques["Nombre de personnages tués"] = 0;
     statistiques["Nombre de salles parcourues"] = 0;
     statistiques["Nombre d'objets ramassés"] = 0;
@@ -12,8 +13,9 @@ Personnage::Personnage(){
 }
 
 Personnage::Personnage(string new_nom, int new_pv, int new_force,
-    int new_endurance, int new_vitesse, int new_agilite,
-    int new_arcanisme, int new_mana, Arme* new_arme, Armure* new_armure){
+                       int new_endurance, int new_vitesse, int new_agilite,
+                       int new_arcanisme, int new_mana, Arme *new_arme, Armure *new_armure)
+{
 
     nom = new_nom;
     pv = new_pv;
@@ -26,15 +28,15 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force,
     arme_equipe = new_arme;
     armure_equipe = new_armure;
 
-    //Initialisation des statistiques
+    // Initialisation des statistiques
     statistiques["Nombre de personnages tués"] = 0;
     statistiques["Nombre de salles parcourues"] = 0;
     statistiques["Nombre d'objets ramassés"] = 0;
     statistiques["Nombre de sorts utilisés"] = 0;
 }
 
-Personnage::Personnage(string new_nom, int new_pv, int new_force){
-
+Personnage::Personnage(string new_nom, int new_pv, int new_force)
+{
 
     set_nom(new_nom);
     set_pv(new_pv);
@@ -44,37 +46,39 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force){
     set_agilite(0);
     set_arcanisme(0);
     set_mana(0);
-    //equiper_arme(new_arme);
-    //equiper_armure(new_armure);
+    // equiper_arme(new_arme);
+    // equiper_armure(new_armure);
 }
 
-Personnage::~Personnage() {
-    
+Personnage::~Personnage()
+{
 }
 
-void Personnage::equiper_arme(Arme* new_arme){
+void Personnage::equiper_arme(Arme *new_arme)
+{
     arme_equipe = new_arme;
 }
 
-void Personnage::equiper_armure(Armure* new_armure){
+void Personnage::equiper_armure(Armure *new_armure)
+{
     armure_equipe = new_armure;
 }
 
-void Personnage::attaquer_Un_Autre_Personnage(Arme* armes, Personnage* ennemis){
+void Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis)
+{
 
     int pv_ennemie = ennemis->get_pv();
-    int degats_brut = armes->attaque*(10 + force);
-    int degats_net = (degats_brut - ennemis->armure_equipe->defense)/ennemis->endurance;
+    int degats_brut = armes->attaque * (10 + force);
+    int degats_net = (degats_brut - ennemis->armure_equipe->defense) / ennemis->endurance;
     ennemis->set_pv(pv_ennemie - degats_net);
-
 }
 
 void Personnage::add_competence(string *competence)
 {
 }
 
-void Personnage::add_consommable(Consommable* conso) {
-
+void Personnage::add_consommable(Consommable *conso)
+{
 }
 
 void Personnage::add_arme(Arme *arme)
@@ -89,15 +93,15 @@ void Personnage::del_competence(string *competence)
 {
 }
 
-void del_consommable(Consommable* conso)
+void del_consommable(Consommable *conso)
 {
 }
 
-void del_arme(Arme* arme)
+void del_arme(Arme *arme)
 {
 }
 
-void del_armure(Armure* armure)
+void del_armure(Armure *armure)
 {
 }
 

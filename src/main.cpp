@@ -9,9 +9,11 @@ using namespace std;
 
 #include "AllFiles.h"
 
-int main() {
+int main()
+{
 
-  cout << "Hello World" << "\n";
+  cout << "Hello World"
+       << "\n";
 
   Jeu jeu;
 

@@ -3,14 +3,13 @@
 
 Consommable::Consommable()
 {
-
 }
 
 Consommable::~Consommable()
 {
-
 }
 
-void PotionDeVie::effet() {
+void PotionDeVie::effet()
+{
     std::cout << "Potion de vie\n";
 }

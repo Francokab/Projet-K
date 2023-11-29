@@ -12,21 +12,23 @@
 #include <list>
 
 // Define an enum
-enum OPERATION {
+enum OPERATION
+{
     NONE,
     TEXT,
     COMBAT,
     ARME,
     ARMURE,
     GO,
-    PATH, //Must Delete the pointer after use
+    PATH, // Must Delete the pointer after use
     VICTOIRE
 };
 
 // Define a struct with an enum and a pointer
-struct OperationToDo {
+struct OperationToDo
+{
     OPERATION operation;
-    void* pointer_1;
+    void *pointer_1;
 };
 
 class Jeu
@@ -35,32 +37,28 @@ public:
     Jeu();
     ~Jeu();
 
-    int gameState;  //which file are we on
+    int gameState; // which file are we on
     bool gameIsRunning;
-    vector<Objet*> vectorObjet;
-    vector<Personnage*> vectorPersonnage;
+    vector<Objet *> vectorObjet;
+    vector<Personnage *> vectorPersonnage;
     list<string> listText;
     vector<OperationToDo> vectorToDo;
     Narrateur narrateur;
     JoueurHumain joueurHumain;
     JoueurMonstre joueurIA;
     Catalogue catalogue;
-    
-
 
     void start();
     void goToPath(int path);
-    void startCombat(vector<Joueur*> joueurEnCombat);
-    void prendreObjet(Personnage* joueur, Objet* objet);
+    void startCombat(vector<Joueur *> joueurEnCombat);
+    void prendreObjet(Personnage *joueur, Objet *objet);
     void lose();
     void win();
     void readText(int i);
     void creationDePersonnage();
-    void killPersonnage(Personnage* personnage); // remove Personnage from everything and delete it
-
+    void killPersonnage(Personnage *personnage); // remove Personnage from everything and delete it
 
 private:
-
 };
 
 #endif

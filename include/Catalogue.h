@@ -13,21 +13,18 @@ public:
     Catalogue();
     ~Catalogue();
 
-    Personnage* guerrier();
-    Personnage* rodeur();
-    Personnage* mage();
+    Personnage *guerrier();
+    Personnage *rodeur();
+    Personnage *mage();
 
-    Arme* epee();
-    Arme* dagues();
-    Arme* baton();
-    Armure* cuirasse();
-    Armure* cuir();
-    Armure* tissus();
-
-    
+    Arme *epee();
+    Arme *dagues();
+    Arme *baton();
+    Armure *cuirasse();
+    Armure *cuir();
+    Armure *tissus();
 
 private:
-
 };
 
 #endif

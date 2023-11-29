@@ -19,9 +19,12 @@ public:
     virtual void effet() = 0;
 
 private:
-
 };
 
-class BouleDeFeu : public Magie {public: void effet();};
+class BouleDeFeu : public Magie
+{
+public:
+    void effet();
+};
 
 #endif

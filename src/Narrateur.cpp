@@ -5,12 +5,10 @@
 
 Narrateur::Narrateur()
 {
-
 }
 
 Narrateur::~Narrateur()
 {
-
 }
 
 int Narrateur::choixJoueurInt()
@@ -29,7 +27,8 @@ int Narrateur::choixJoueurInt(string text_to_print)
 int Narrateur::choixJoueurInt(int max)
 {
     int choix = choixJoueurInt();
-    while (choix >= max) {
+    while (choix >= max)
+    {
         printScreen("La valeur entrée dépasse le max possible de " + to_string(max));
         choixJoueurInt();
     }
@@ -39,7 +38,8 @@ int Narrateur::choixJoueurInt(int max)
 int Narrateur::choixJoueurInt(int min, int max)
 {
     int choix = choixJoueurInt(max);
-    while (choix < min) {
+    while (choix < min)
+    {
         printScreen("La valeur entrée est inférieur au min possible de " + to_string(min));
         choixJoueurInt(max);
     }
@@ -73,14 +73,15 @@ string Narrateur::choixJoueurString(string text_to_print)
 
 void Narrateur::printScreen()
 {
-
 }
 
-void Narrateur::printScreen(string text){
+void Narrateur::printScreen(string text)
+{
     cout << text << endl;
 }
 
-void Narrateur::prendreObjet(Personnage* joueur, Objet* objet) {
+void Narrateur::prendreObjet(Personnage *joueur, Objet *objet)
+{
     cout << joueur->get_nom() << "prend l'objet" << objet->nom << endl;
 }
 

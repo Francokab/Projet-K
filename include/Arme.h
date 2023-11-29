@@ -17,7 +17,6 @@ public:
     int attaque;
 
 private:
-
 };
 
 #endif

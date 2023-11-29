@@ -14,9 +14,12 @@ public:
     virtual void effet() = 0;
 
 private:
-
 };
 
-class PotionDeVie : public Consommable {public: void effet();};
+class PotionDeVie : public Consommable
+{
+public:
+    void effet();
+};
 
 #endif

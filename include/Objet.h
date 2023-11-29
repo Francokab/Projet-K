@@ -16,9 +16,7 @@ public:
     int prix;
     int poids;
 
-
 private:
-
 };
 
 #endif
