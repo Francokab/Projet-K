@@ -1,4 +1,4 @@
-Après un long voyage à travers la jungle de l'ile d'Oracle vous arrivez enfin devant l'entrée du temple que vous cherchiez. La relique doit être ici, elle ne peut qu'être ici. Le temple est usé par le passage du temps, et c'est avec un peu d'appréhension que vous décidez d'entrer dans le temple.
+AprÃ¨s un long voyage Ã  travers la jungle de l'Ã®le d'Oracle, vous arrivez enfin devant l'entrÃ©e du temple que vous cherchiez. La relique doit Ãªtre ici, elle ne peut qu'Ãªtre ici. Le temple est usÃ© par le passage du temps, et c'est avec un peu d'apprÃ©hension que vous dÃ©cidez d'entrer dans le temple.
 
 *PATH*
 1

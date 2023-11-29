@@ -1,4 +1,4 @@
-L'objet qui ressemblait ‡ un coffre commence ‡ se mouvoir. Il vous attaque.
+L'objet qui ressemblait √† un coffre commence √† se mouvoir. Il vous attaque.
 
 *COMBAT*
 Mimic
@@ -8,10 +8,10 @@ Mimic
 Le Mimic laisse tomber dans sa mort une arme.
 
 *ARME*
-LumiËre
+Lumi√®re
 2
 
-AprËs ce rude combat, vous choisissez de continuer votre route.
+Apr√®s ce rude combat, vous d√©cidez de poursuivre votre route.
 
 *PATH*
 5
