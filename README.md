@@ -3,6 +3,7 @@
 
 # TODO
     - Regler probleme de retour à la ligne
+    - Regler problème de input max mal definit
     - Remplir le catalogue (Cuir et tissus)
     - Implementer les add et del conso, arme et armure
     - Implementer les compétence
