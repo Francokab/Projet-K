@@ -177,9 +177,23 @@ void Jeu::readText(int i) {
 void Jeu::creationDePersonnage()
 {
     // choix de classe
-    cout << "Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3." << endl;
-    int choix = 0;
-    cin >> choix;
+    int choixClasse = narrateur.choixJoueurInt("Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3.");
+    Personnage* personnageJoueur;
+    switch (choixClasse)
+    {
+    case 1:
+        personnageJoueur = catalogue.guerrier();
+        break;
+    case 2:
+        personnageJoueur = catalogue.rodeur();
+        break;
+    case 3:
+        personnageJoueur = catalogue.mage();
+        break;
+    
+    default:
+        throw invalid_argument("out of bound choice");
+    }
     // choix de nom
     // choix d'atribut ?
     // classe en plus ?
