@@ -36,6 +36,7 @@ Jeu::~Jeu()
 void Jeu::start() {
     string text;
     vector<int>* vector_path;
+    int pathToGo;
 
     // Initialisation de truc
 
@@ -74,7 +75,7 @@ void Jeu::start() {
 
         case PATH:
             vector_path = (vector<int>*)operation_to_do.pointer_1;
-            int pathToGo = -1;
+            pathToGo = -1;
             if (vector_path->size() == 2) {
                 if (vector_path->at(0) == vector_path->at(1)) {
                     pathToGo = vector_path->at(0);
