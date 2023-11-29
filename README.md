@@ -2,7 +2,6 @@
  Jeu dont vous êtes le héros
 
 # TODO
-    - implementer le changement de path
     - ecrire le constructeur de joueur
     - Remplir le catalogue (Cuir et tissus)
     - Implementer les add et del conso, arme et armure

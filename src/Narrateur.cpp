@@ -26,6 +26,38 @@ int Narrateur::choixJoueurInt(string text_to_print)
     return choixJoueurInt();
 }
 
+int Narrateur::choixJoueurInt(int max)
+{
+    int choix = choixJoueurInt();
+    while (choix >= max) {
+        printScreen("La valeur entrée dépasse le max possible de " + to_string(max));
+        choixJoueurInt();
+    }
+    return choix;
+}
+
+int Narrateur::choixJoueurInt(int min, int max)
+{
+    int choix = choixJoueurInt(max);
+    while (choix < min) {
+        printScreen("La valeur entrée est inférieur au min possible de " + to_string(min));
+        choixJoueurInt(max);
+    }
+    return choix;
+}
+
+int Narrateur::choixJoueurInt(string text_to_print, int max)
+{
+    printScreen(text_to_print);
+    return choixJoueurInt(max);
+}
+
+int Narrateur::choixJoueurInt(string text_to_print, int min, int max)
+{
+    printScreen(text_to_print);
+    return choixJoueurInt(min, max);
+}
+
 string Narrateur::choixJoueurString()
 {
     string choix;

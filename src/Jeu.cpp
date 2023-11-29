@@ -74,14 +74,20 @@ void Jeu::start() {
 
         case PATH:
             vector_path = (vector<int>*)operation_to_do.pointer_1;
+            int pathToGo = -1;
             if (vector_path->size() == 2) {
-                if (vector_path[0] == vector_path[1]) {
-                    //go to path 0 and break
+                if (vector_path->at(0) == vector_path->at(1)) {
+                    pathToGo = vector_path->at(0);
                 }
             }
-            // demand input (with max vector_path.size()) and then go there and break
+            if (pathToGo == -1) {
+            pathToGo = vector_path->at(narrateur.choixJoueurInt(vector_path->size()) - 1);
+            }
 
             delete vector_path;
+            if (pathToGo >= 0) {
+                goToPath(pathToGo);
+            } else { throw logic_error("Error in the path algo, pathToGo is " + to_string(pathToGo));}
             break;
 
         case VICTOIRE:
@@ -95,10 +101,15 @@ void Jeu::start() {
     }
 }
 
-void Jeu::readText(int i) {
+void Jeu::goToPath(int path)
+{
     // flush all previous operation to do
     vectorToDo.clear();
+    readText(path);
 
+}
+
+void Jeu::readText(int i) {
     // read text into buffer
     string path = "text/" + to_string(i) + ".txt";
     ifstream myfile(path);

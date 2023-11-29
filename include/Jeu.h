@@ -49,6 +49,7 @@ public:
 
 
     void start();
+    void goToPath(int path);
     void startCombat(vector<Joueur*> joueurEnCombat);
     void prendreObjet(Personnage* joueur, Objet* objet);
     void lose();
