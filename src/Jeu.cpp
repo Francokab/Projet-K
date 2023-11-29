@@ -37,6 +37,7 @@ void Jeu::start() {
     string text;
     vector<int>* vector_path;
     int pathToGo;
+    int debug;
 
     // Initialisation de truc
 
@@ -44,9 +45,20 @@ void Jeu::start() {
     creationDePersonnage();
 
     // the game start
+    goToPath(0);
     while (gameIsRunning) {
         // Do an operation
         OperationToDo operation_to_do = vectorToDo.front();
+        vectorToDo.erase(vectorToDo.begin());
+
+        // Debug
+        // cout << "vectorToDo :\n"; 
+        // for (OperationToDo op: vectorToDo) {
+        //     cout << op.operation << " " << op.pointer_1 << "\n";
+        // }
+        // cout << "current operation : " << operation_to_do.operation << " " << operation_to_do.pointer_1 << "\n";
+        // cin >> debug;
+        // cout << "\n";
 
         // switch
         switch (operation_to_do.operation)
