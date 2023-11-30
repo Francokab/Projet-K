@@ -77,6 +77,7 @@ void Narrateur::printScreen()
 
 void Narrateur::printScreen(string text)
 {
+    this_thread::sleep_for(chrono::milliseconds(100));
     cout << text << endl;
 }
 
