@@ -42,7 +42,7 @@ public:
     int get_mana() { return mana; }
     Arme *get_arme_equipe() { return arme_equipe; }
     Armure *get_armure_equipe() { return armure_equipe; }
-    vector<string> get_competences() { return competences_liste; }
+    vector<string *> get_competences() { return competences_liste; }
     vector<Consommable *> get_consommables() { return consommables_liste; }
     vector<Arme *> get_armes() { return armes_liste; }
     vector<Armure *> get_armures() { return armures_liste; }
@@ -66,15 +66,18 @@ public:
     void add_arme(Arme *arme);
     void add_armure(Armure *armure);
 
+    void add_equip_arme(Arme *arme);
+    void add_equip_armure(Armure *armure);
+
     void del_competence(string *competence);
     void del_consommable(Consommable *conso);
     void del_arme(Arme *arme);
     void del_armure(Armure *armure);
 
-    void raz_competences();
-    void raz_consommables();
-    void raz_armes();
-    void raz_armures();
+    // void raz_competences();
+    // void raz_consommables();
+    // void raz_armes();
+    // void raz_armures();
 
     // Les statistiques sont théoriquement toujours les mêmes, mais
     // elles peuvent être incrémentés.
@@ -91,7 +94,7 @@ private:
     int mana = 0;
     Arme *arme_equipe;
     Armure *armure_equipe;
-    vector<string> competences_liste;
+    vector<string*> competences_liste;
     vector<Consommable *> consommables_liste;
     vector<Arme *> armes_liste;
     vector<Armure *> armures_liste;

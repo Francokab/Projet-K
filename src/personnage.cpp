@@ -1,4 +1,5 @@
 #include "Personnage.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -25,8 +26,8 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force,
     agilite = new_agilite;
     arcanisme = new_arcanisme;
     mana = new_mana;
-    arme_equipe = new_arme;
-    armure_equipe = new_armure;
+    add_equip_arme(new_arme);
+    add_equip_armure(new_armure);
 
     // Initialisation des statistiques
     statistiques["Nombre de personnages tués"] = 0;
@@ -46,8 +47,6 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force)
     set_agilite(0);
     set_arcanisme(0);
     set_mana(0);
-    // equiper_arme(new_arme);
-    // equiper_armure(new_armure);
 }
 
 Personnage::~Personnage()
@@ -75,48 +74,68 @@ void Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis)
 
 void Personnage::add_competence(string *competence)
 {
+    competences_liste.push_back(competence);
 }
 
 void Personnage::add_consommable(Consommable *conso)
 {
+    consommables_liste.push_back(conso);
 }
 
 void Personnage::add_arme(Arme *arme)
 {
+    armes_liste.push_back(arme);
 }
 
 void Personnage::add_armure(Armure *armure)
 {
+    armures_liste.push_back(armure);
+}
+
+void Personnage::add_equip_arme(Arme *arme)
+{
+    add_arme(arme);
+    equiper_arme(arme);
+}
+
+void Personnage::add_equip_armure(Armure *armure)
+{
+    add_armure(armure);
+    equiper_armure(armure);
 }
 
 void Personnage::del_competence(string *competence)
 {
+    std::vector<string *>::iterator position = std::find(competences_liste.begin(), competences_liste.end(), competence);
+    if (position != competences_liste.end())
+    { // == vectorPersonnage.end() means the element was not found
+        competences_liste.erase(position);
+    }
 }
 
-void del_consommable(Consommable *conso)
+void Personnage::del_consommable(Consommable *conso)
 {
+    std::vector<Consommable *>::iterator position = std::find(consommables_liste.begin(), consommables_liste.end(), conso);
+    if (position != consommables_liste.end())
+    { // == vectorPersonnage.end() means the element was not found
+        consommables_liste.erase(position);
+    }
 }
 
-void del_arme(Arme *arme)
+void Personnage::del_arme(Arme *arme)
 {
+    std::vector<Arme *>::iterator position = std::find(armes_liste.begin(), armes_liste.end(), arme);
+    if (position != armes_liste.end())
+    { // == vectorPersonnage.end() means the element was not found
+        armes_liste.erase(position);
+    }
 }
 
-void del_armure(Armure *armure)
+void Personnage::del_armure(Armure *armure)
 {
-}
-
-void raz_competences()
-{
-}
-
-void raz_consommables()
-{
-}
-
-void raz_armes()
-{
-}
-
-void raz_armures()
-{
+    std::vector<Armure *>::iterator position = std::find(armures_liste.begin(), armures_liste.end(), armure);
+    if (position != armures_liste.end())
+    { // == vectorPersonnage.end() means the element was not found
+        armures_liste.erase(position);
+    }
 }

@@ -3,7 +3,7 @@
 
 # TODO
     - Remplir le catalogue (Cuir et tissus)
-    - Implementer les add et del conso, arme et armure
+    - Ajouter arme et armure basique lors de creation de personnage
     - Implementer les compétence
         - avec des ENUM ?
     - Implementer correctement tous les delete
