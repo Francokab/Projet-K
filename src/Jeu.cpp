@@ -67,6 +67,7 @@ void Jeu::start()
         case TEXT:
             text = *((string *)operation_to_do.pointer_1);
             narrateur.printScreen(text);
+            listText.remove(text);
             break;
 
         case COMBAT:
@@ -203,6 +204,9 @@ void Jeu::readText(int i)
         }
         else
         {
+            // cout << endl << "debug print" << endl;
+            // cout << line_ << endl;
+            // cout << "debug print end" << endl << endl;
             if (new_text_operation)
             {
                 listText.push_back(line_);
@@ -213,7 +217,7 @@ void Jeu::readText(int i)
             }
             else
             {
-                listText.back() = listText.back() + line_;
+                listText.back() = listText.back() + line_ + "\n";
             }
         }
     }

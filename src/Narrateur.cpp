@@ -15,6 +15,7 @@ int Narrateur::choixJoueurInt()
 {
     int choix;
     cin >> choix;
+    cout << endl;
     return choix;
 }
 
@@ -62,6 +63,7 @@ string Narrateur::choixJoueurString()
 {
     string choix;
     cin >> choix;
+    cout << endl;
     return choix;
 }
 
