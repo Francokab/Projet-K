@@ -99,7 +99,7 @@ void Jeu::start()
             }
             if (pathToGo == -1)
             {
-                pathToGo = vector_path->at(narrateur.choixJoueurInt(vector_path->size()) - 1);
+                pathToGo = vector_path->at(narrateur.choixJoueurInt(1, vector_path->size() + 1) - 1);
             }
 
             delete vector_path;
@@ -228,7 +228,7 @@ void Jeu::readText(int i)
 void Jeu::creationDePersonnage()
 {
     // choix de classe
-    int choixClasse = narrateur.choixJoueurInt("Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3.");
+    int choixClasse = narrateur.choixJoueurInt("Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3.", 1, 4);
     Personnage *personnageJoueur;
     switch (choixClasse)
     {

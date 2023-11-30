@@ -31,7 +31,7 @@ int Narrateur::choixJoueurInt(int max)
     while (choix >= max)
     {
         printScreen("La valeur entrée dépasse le max possible de " + to_string(max));
-        choixJoueurInt();
+        choix = choixJoueurInt();
     }
     return choix;
 }
@@ -42,7 +42,7 @@ int Narrateur::choixJoueurInt(int min, int max)
     while (choix < min)
     {
         printScreen("La valeur entrée est inférieur au min possible de " + to_string(min));
-        choixJoueurInt(max);
+        choix = choixJoueurInt(max);
     }
     return choix;
 }
