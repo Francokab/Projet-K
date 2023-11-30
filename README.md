@@ -6,6 +6,11 @@
     - Implementer les add et del conso, arme et armure
     - Implementer les compétence
         - avec des ENUM ?
+    - Implementer correctement tous les delete
+    - Reequilibrer la balance du jeu par rapport au donnée dans les fichier textes
+    - Rajouter narrateur à start combat et decider action
+    - Faire des tests avec une classe test ?
+        - tester les combats
     - créer un meilleur start combat
         - avec nombre de personnage arbitraire
         - avec nombre de joueur arbitraire ?

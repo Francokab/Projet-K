@@ -311,9 +311,11 @@ void Jeu::startCombat(vector<Joueur *> joueurEnCombat)
     vector<Personnage *> ennemis1 = {p1};
 
     bool j2_vivant = true;
-    Joueur *j2 = joueurEnCombat[0];
+    Joueur *j2 = joueurEnCombat[1];
     Personnage *p2 = j2->vectorPersonnage[0];
     vector<Personnage *> ennemis2 = {p2};
+
+    cout << "combat entre " << p1->get_nom() << " et " << p2->get_nom() << endl;
 
     while (j1_vivant && j2_vivant)
     {
