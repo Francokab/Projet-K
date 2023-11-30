@@ -5,13 +5,16 @@
 
 #include "Personnage.h"
 #include "Objet.h"
+#include "Jeu.h"
 
-// list of constructer of typical object
+// list of constructer of typical object, automaticaly add them to jeu's vectors
 class Catalogue
 {
 public:
-    Catalogue();
+    Catalogue(Jeu *jeu);
     ~Catalogue();
+
+    Jeu *jeu;
 
     Personnage *guerrier();
     Personnage *rodeur();

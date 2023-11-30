@@ -25,7 +25,7 @@ Jeu::Jeu()
     narrateur = Narrateur();
     joueurHumain = JoueurHumain();
     joueurIA = JoueurMonstre();
-    catalogue = Catalogue();
+    catalogue = Catalogue(this);
 }
 
 Jeu::~Jeu()
@@ -245,7 +245,6 @@ void Jeu::creationDePersonnage()
     default:
         throw invalid_argument("out of bound choice");
     }
-    vectorPersonnage.push_back(personnageJoueur);
     joueurHumain.addPersonnage(personnageJoueur);
     // choix de nom
     string choixNom = narrateur.choixJoueurString("Choisis ton nom :");
