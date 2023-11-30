@@ -209,7 +209,7 @@ void Jeu::readText(int i)
             // cout << "debug print end" << endl << endl;
             if (new_text_operation)
             {
-                listText.push_back(line_);
+                listText.push_back(line_ + "\n");
                 operation.operation = TEXT;
                 operation.pointer_1 = &listText.back();
                 vectorToDo.push_back(operation);
