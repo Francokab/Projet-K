@@ -17,9 +17,11 @@ public:
     Personnage *rodeur();
     Personnage *mage();
 
+    Arme *poing();
     Arme *epee();
     Arme *dagues();
     Arme *baton();
+    Armure *peau();
     Armure *cuirasse();
     Armure *cuir();
     Armure *tissus();

@@ -67,6 +67,12 @@ Personnage *Catalogue::mage()
     return joueur;
 }
 
+Arme *Catalogue::poing()
+{
+    Arme *poing = new Arme("Coup de poing", 0, 0, 1);
+    return poing;
+}
+
 Arme *Catalogue::epee()
 {
 
@@ -86,6 +92,12 @@ Arme *Catalogue::baton()
     return baton;
 }
 
+Armure *Catalogue::peau()
+{
+    Armure *peau = new Armure("Peau", 0, 0, 1);
+    return peau;
+}
+
 Armure *Catalogue::cuirasse()
 {
 
@@ -101,6 +113,6 @@ Armure *Catalogue::cuir()
 
 Armure *Catalogue::tissus()
 {
-    Armure *tissus = new Armure("Vetements en tissus", 10, 2, 1);
+    Armure *tissus = new Armure("Vetements en tissus", 10, 2, 2);
     return tissus;
 }
