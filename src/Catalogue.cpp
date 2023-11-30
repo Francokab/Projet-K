@@ -14,7 +14,17 @@ Personnage *Catalogue::guerrier()
 
     Arme *epee = Catalogue::epee();
     Armure *cuirasse = Catalogue::cuirasse();
-    Personnage *joueur = new Personnage("Joueur", 100, 7, 7, 7, 7, 7, 0, epee, cuirasse);
+    Personnage *joueur = new Personnage();
+    joueur->set_nom("Guerrier");
+    joueur->set_pv(100);
+    joueur->set_force(7);
+    joueur->set_endurance(7);
+    joueur->set_vitesse(7);
+    joueur->set_agilite(7);
+    joueur->set_arcanisme(7);
+    joueur->set_mana(0);
+    joueur->add_equip_arme(epee);
+    joueur->add_equip_armure(cuirasse);
 
     return joueur;
 }
@@ -23,7 +33,17 @@ Personnage *Catalogue::rodeur()
 {
     Arme *dagues = Catalogue::dagues();
     Armure *cuir = Catalogue::cuir();
-    Personnage *joueur = new Personnage("Joueur", 100, 5, 8, 8, 9, 0, 0, dagues, cuir);
+    Personnage *joueur = new Personnage();
+    joueur->set_nom("Rodeur");
+    joueur->set_pv(100);
+    joueur->set_force(5);
+    joueur->set_endurance(8);
+    joueur->set_vitesse(8);
+    joueur->set_agilite(9);
+    joueur->set_arcanisme(0);
+    joueur->set_mana(0);
+    joueur->add_equip_arme(dagues);
+    joueur->add_equip_armure(cuir);
 
     return joueur;
 }
@@ -32,7 +52,17 @@ Personnage *Catalogue::mage()
 {
     Arme *baton = Catalogue::baton();
     Armure *tissus = Catalogue::tissus();
-    Personnage *joueur = new Personnage("Joueur", 100, 3, 5, 5, 4, 8, 100, baton, tissus);
+    Personnage *joueur = new Personnage();
+    joueur->set_nom("Mage");
+    joueur->set_pv(100);
+    joueur->set_force(3);
+    joueur->set_endurance(5);
+    joueur->set_vitesse(5);
+    joueur->set_agilite(4);
+    joueur->set_arcanisme(8);
+    joueur->set_mana(100);
+    joueur->add_equip_arme(baton);
+    joueur->add_equip_armure(tissus);
 
     return joueur;
 }
@@ -65,10 +95,12 @@ Armure *Catalogue::cuirasse()
 
 Armure *Catalogue::cuir()
 {
-    return new Armure();
+    Armure *cuir = new Armure("Armure en cuir", 40, 10, 5);
+    return cuir;
 }
 
 Armure *Catalogue::tissus()
 {
-    return new Armure();
+    Armure *tissus = new Armure("Vetements en tissus", 10, 2, 1);
+    return tissus;
 }

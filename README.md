@@ -2,7 +2,6 @@
  Jeu dont vous êtes le héros
 
 # TODO
-    - Remplir le catalogue (Cuir et tissus)
     - Ajouter arme et armure basique lors de creation de personnage
     - Implementer les compétence
         - avec des ENUM ?
