@@ -2,7 +2,6 @@
  Jeu dont vous êtes le héros
 
 # TODO
-    - Ajouter arme et armure basique lors de creation de personnage
     - Implementer les compétence
         - avec des ENUM ?
     - Implementer correctement tous les delete
