@@ -5,7 +5,6 @@ using namespace std;
 
 Personnage::Personnage()
 {
-
     // Initialisation des statistiques
     statistiques["Nombre de personnages tués"] = 0;
     statistiques["Nombre de salles parcourues"] = 0;

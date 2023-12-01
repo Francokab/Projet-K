@@ -5,17 +5,20 @@
 
 #include "Personnage.h"
 #include "Objet.h"
-#include "Jeu.h"
+class Jeu; // Forward Declaration because of circular dependancy
 
 // list of constructer of typical object, automaticaly add them to jeu's vectors
 class Catalogue
 {
 public:
-    Catalogue(Jeu *jeu);
+    Catalogue();
+    Catalogue(Jeu* jeu);
     ~Catalogue();
 
     Jeu *jeu;
 
+    Personnage *basic();
+    Personnage *basic(string nom, int pv, int force);
     Personnage *guerrier();
     Personnage *rodeur();
     Personnage *mage();

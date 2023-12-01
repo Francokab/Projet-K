@@ -1,5 +1,10 @@
 #include "Catalogue.h"
 #include "Personnage.h"
+#include "Jeu.h"
+
+Catalogue::Catalogue()
+{
+}
 
 Catalogue::Catalogue(Jeu *jeu)
 {
@@ -10,12 +15,40 @@ Catalogue::~Catalogue()
 {
 }
 
+Personnage *Catalogue::basic()
+{
+    Arme *poing = Catalogue::poing();
+    Armure *peau = Catalogue::peau();
+    Personnage *joueur = new Personnage();
+    jeu->vectorPersonnage.push_back(joueur);
+    joueur->set_nom("Basic");
+    joueur->set_pv(100);
+    joueur->set_force(5);
+    joueur->set_endurance(5);
+    joueur->set_vitesse(5);
+    joueur->set_agilite(5);
+    joueur->set_arcanisme(0);
+    joueur->set_mana(0);
+    joueur->add_equip_arme(poing);
+    joueur->add_equip_armure(peau);
+
+    return joueur;
+}
+
+Personnage *Catalogue::basic(string nom, int pv, int force)
+{
+    Personnage *joueur = basic();
+    joueur->set_nom(nom);
+    joueur->set_pv(pv);
+    joueur->set_force(force);
+    return joueur;
+}
+
 Personnage *Catalogue::guerrier()
 {
-
     Arme *epee = Catalogue::epee();
     Armure *cuirasse = Catalogue::cuirasse();
-    Personnage *joueur = new Personnage();
+    Personnage *joueur = basic();
     jeu->vectorPersonnage.push_back(joueur);
     joueur->set_nom("Guerrier");
     joueur->set_pv(100);
@@ -35,7 +68,7 @@ Personnage *Catalogue::rodeur()
 {
     Arme *dagues = Catalogue::dagues();
     Armure *cuir = Catalogue::cuir();
-    Personnage *joueur = new Personnage();
+    Personnage *joueur = basic();
     jeu->vectorPersonnage.push_back(joueur);
     joueur->set_nom("Rodeur");
     joueur->set_pv(100);
@@ -55,7 +88,7 @@ Personnage *Catalogue::mage()
 {
     Arme *baton = Catalogue::baton();
     Armure *tissus = Catalogue::tissus();
-    Personnage *joueur = new Personnage();
+    Personnage *joueur = basic();
     jeu->vectorPersonnage.push_back(joueur);
     joueur->set_nom("Mage");
     joueur->set_pv(100);
