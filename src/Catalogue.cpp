@@ -80,6 +80,8 @@ Personnage *Catalogue::rodeur()
     joueur->set_mana(0);
     joueur->add_equip_arme(dagues);
     joueur->add_equip_armure(cuir);
+    joueur->add_competence(SKILL_CRIT_RODEUR);
+    joueur->add_competence(SKILL_ESQUIVE_RODEUR);
 
     return joueur;
 }

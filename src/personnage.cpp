@@ -71,7 +71,7 @@ void Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis)
     ennemis->set_pv(pv_ennemie - degats_net);
 }
 
-void Personnage::add_competence(string *competence)
+void Personnage::add_competence(SKILL competence)
 {
     competences_liste.push_back(competence);
 }
@@ -103,9 +103,9 @@ void Personnage::add_equip_armure(Armure *armure)
     equiper_armure(armure);
 }
 
-void Personnage::del_competence(string *competence)
+void Personnage::del_competence(SKILL competence)
 {
-    std::vector<string *>::iterator position = std::find(competences_liste.begin(), competences_liste.end(), competence);
+    std::vector<SKILL>::iterator position = std::find(competences_liste.begin(), competences_liste.end(), competence);
     if (position != competences_liste.end())
     { // == vectorPersonnage.end() means the element was not found
         competences_liste.erase(position);

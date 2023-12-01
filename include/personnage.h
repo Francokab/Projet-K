@@ -12,6 +12,12 @@
 
 using namespace std;
 
+enum SKILL
+{
+    SKILL_CRIT_RODEUR,   // Not Implemented
+    SKILL_ESQUIVE_RODEUR // Not Implemented
+};
+
 class Personnage
 {
 
@@ -42,7 +48,7 @@ public:
     int get_mana() { return mana; }
     Arme *get_arme_equipe() { return arme_equipe; }
     Armure *get_armure_equipe() { return armure_equipe; }
-    vector<string *> get_competences() { return competences_liste; }
+    vector<SKILL> get_competences() { return competences_liste; }
     vector<Consommable *> get_consommables() { return consommables_liste; }
     vector<Arme *> get_armes() { return armes_liste; }
     vector<Armure *> get_armures() { return armures_liste; }
@@ -61,7 +67,7 @@ public:
     // Pour les listes de competences et des objets,
     // il nous semble plus pertinent de mettre les setters sous la
     // forme d'un push_back, d'un pop ou d'une remise à zéro.
-    void add_competence(string *competence);
+    void add_competence(SKILL competence);
     void add_consommable(Consommable *conso);
     void add_arme(Arme *arme);
     void add_armure(Armure *armure);
@@ -69,7 +75,7 @@ public:
     void add_equip_arme(Arme *arme);
     void add_equip_armure(Armure *armure);
 
-    void del_competence(string *competence);
+    void del_competence(SKILL competence);
     void del_consommable(Consommable *conso);
     void del_arme(Arme *arme);
     void del_armure(Armure *armure);
@@ -94,7 +100,7 @@ private:
     int mana = 0;
     Arme *arme_equipe;
     Armure *armure_equipe;
-    vector<string*> competences_liste;
+    vector<SKILL> competences_liste;
     vector<Consommable *> consommables_liste;
     vector<Arme *> armes_liste;
     vector<Armure *> armures_liste;
