@@ -7,8 +7,18 @@ Joueur::Joueur()
 {
 }
 
+Joueur::Joueur(Narrateur *narrateur)
+{
+    this->setNarrateur(narrateur);
+}
+
 Joueur::~Joueur()
 {
+}
+
+void Joueur::setNarrateur(Narrateur *narrateur)
+{
+    this->narrateur = narrateur;
 }
 
 void Joueur::addPersonnage(Personnage *personnage)
@@ -120,4 +130,19 @@ int JoueurHumain::deciderAction(vector<Personnage *> liste_personnage_present, i
     }
 
     return choix_int;
+}
+
+int JoueurHumain::deciderPath(int numberOfChoice)
+{
+    return narrateur->choixJoueurInt(1, numberOfChoice + 1) - 1;
+}
+
+int JoueurHumain::deciderClasse(int numberOfChoice)
+{
+    return narrateur->choixJoueurInt(1, numberOfChoice + 1);
+}
+
+string JoueurHumain::deciderNom()
+{
+    return narrateur->choixJoueurString();
 }
