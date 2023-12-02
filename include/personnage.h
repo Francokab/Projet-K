@@ -40,6 +40,7 @@ public:
     // Getter
     string get_nom() { return nom; }
     int get_pv() { return pv; }
+    bool isAlive() { return (pv > 0); }
     int get_force() { return force; }
     int get_endurance() { return endurance; }
     int get_vitesse() { return vitesse; }
