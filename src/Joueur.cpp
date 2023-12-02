@@ -30,6 +30,18 @@ void Joueur::removeAllPersonage()
     vectorPersonnage.clear();
 }
 
+bool Joueur::isAlive()
+{
+    for (Personnage *p : vectorPersonnage)
+    {
+        if (p->get_pv() > 0)
+        { // if atleast one is alive return true
+            return true;
+        }
+    }
+    return false;
+}
+
 int JoueurMonstre::deciderAction(vector<Personnage *> liste_personnage_present, int statut)
 {
 

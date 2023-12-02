@@ -50,13 +50,15 @@ public:
 
     void start();
     void goToPath(int path);
-    void startCombat(vector<Joueur *> joueurEnCombat);
+    void startCombat(vector<Joueur *> joueurEnCombat); // Deprecated
+    void startCombat2Joueur(Joueur *joueur1, Joueur *joueur2);
     void prendreObjet(Personnage *joueur, Objet *objet);
     void lose();
     void win();
     void readText(int i);
     void creationDePersonnage();
-    void killPersonnage(Personnage *personnage); // remove Personnage from everything and delete it
+    void killPersonnage(Personnage *personnage);   // remove Personnage from everything and delete it
+    void killPersonnageFromJoueur(Joueur *joueur); // remove all Personnage from joueur from everything and delete it
 
 private:
 };

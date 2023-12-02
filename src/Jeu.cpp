@@ -24,7 +24,9 @@ Jeu::Jeu()
     vectorToDo = vector<OperationToDo>();
     narrateur = Narrateur();
     joueurHumain = JoueurHumain();
+    joueurHumain.joueurTag = TAG_PLAYER;
     joueurIA = JoueurMonstre();
+    joueurIA.joueurTag = TAG_MONSTRE;
     catalogue = Catalogue(this);
 }
 
@@ -37,7 +39,7 @@ void Jeu::start()
     string text;
     vector<int> *vector_path;
     int pathToGo;
-    int debug;
+    // int debug;
 
     // Initialisation de truc
 
@@ -72,6 +74,7 @@ void Jeu::start()
 
         case COMBAT:
             joueurIA.addPersonnage((Personnage *)operation_to_do.pointer_1);
+            joueurIA.joueurTag = TAG_MONSTRE;
             startCombat({&joueurHumain, &joueurIA});
             break;
 
@@ -266,6 +269,14 @@ void Jeu::killPersonnage(Personnage *personnage)
     delete personnage;
 }
 
+void Jeu::killPersonnageFromJoueur(Joueur *joueur)
+{
+    while (joueur->vectorPersonnage.size() > 0)
+    {
+        killPersonnage(joueur->vectorPersonnage[0]);
+    }
+}
+
 void Jeu::prendreObjet(Personnage *joueur, Objet *objet)
 {
     if (typeid(*objet) == typeid(Arme))
@@ -346,5 +357,41 @@ void Jeu::startCombat(vector<Joueur *> joueurEnCombat)
     {
         cout << "Error at the end of the combat ??" << endl;
         this->lose();
+    }
+}
+
+void Jeu::startCombat2Joueur(Joueur *joueur1, Joueur *joueur2)
+{
+    // Initialisation
+    Joueur *deadJoueur;
+
+    // each iteration is a turn from a joueur
+    while (joueur1->isAlive() && joueur2->isAlive())
+    {
+        // a joueur does an action with each of its personnage
+    }
+
+    // Check who is dead
+    if (joueur1->isAlive())
+    {
+        deadJoueur = joueur1;
+    }
+    else if (joueur2->isAlive())
+    {
+        deadJoueur = joueur2;
+    }
+    else
+    {
+        throw runtime_error("The combat has ended but nobody is dead ?");
+    }
+
+    // Do something with the dead joueur
+    if (deadJoueur->joueurTag == TAG_PLAYER)
+    {
+        this->lose();
+    }
+    else
+    {
+        killPersonnageFromJoueur(deadJoueur);
     }
 }
