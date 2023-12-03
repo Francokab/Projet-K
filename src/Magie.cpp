@@ -56,7 +56,7 @@ void BouleDeFeu::effet(Joueur *joueurEnnemi, Personnage *personnageActuel)
             break;
         }
     }
-    PersonnageAAttaquer->set_pv(PersonnageAAttaquer->get_pv() - 50);
+    PersonnageAAttaquer->set_pv(PersonnageAAttaquer->get_pv() - 30);
     cout << PersonnageAAttaquer->get_nom() << " perd 30 points de vie !" << endl;
     cout << PersonnageAAttaquer->get_nom() << " a " << PersonnageAAttaquer->get_pv() << " point de vie." << endl;
 }
