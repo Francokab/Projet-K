@@ -34,7 +34,7 @@ public:
 
     // Operations principales de la classe personnage
     string attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis); // output un message qui dit ce qui se passe
-    string attaquer_Un_Autre_Personnage(Personnage *ennemis); // attaque avec arme équiper
+    string attaquer_Un_Autre_Personnage(Personnage *ennemis);              // attaque avec arme équiper
     void equiper_arme(Arme *new_arme);
     void equiper_armure(Armure *new_armure);
 

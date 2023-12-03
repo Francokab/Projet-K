@@ -141,10 +141,13 @@ string JoueurHumain::deciderNom()
 
 void JoueurMonstre::deciderCombat2Joueur(Joueur *joueurEnnemi)
 {
-    for (Personnage *personnageActuel : vectorPersonnage) {
+    for (Personnage *personnageActuel : vectorPersonnage)
+    {
         Personnage *PersonnageAAttaquer;
-        for (Personnage *personnageEnnemi: joueurEnnemi->vectorPersonnage) {
-            if (personnageEnnemi->isAlive()) {
+        for (Personnage *personnageEnnemi : joueurEnnemi->vectorPersonnage)
+        {
+            if (personnageEnnemi->isAlive())
+            {
                 PersonnageAAttaquer = personnageEnnemi;
                 break;
             }

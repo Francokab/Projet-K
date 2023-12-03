@@ -69,7 +69,7 @@ string Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis
     int pv_ennemie = ennemis->get_pv();
     int degats_brut = armes->attaque * (10 + force);
     int degats_net = (degats_brut - ennemis->armure_equipe->defense);
-    
+
     message += to_string(degats_net) + " dégâts infligés \n";
     ennemis->set_pv(pv_ennemie - degats_net);
     message += ennemis->get_nom() + " a maintenant " + to_string(ennemis->get_pv()) + " pv";

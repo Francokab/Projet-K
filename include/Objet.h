@@ -9,12 +9,12 @@ class Objet
 {
 public:
     Objet();
-    //Objet(std::string nom_, int prix_, int poids_);
+    // Objet(std::string nom_, int prix_, int poids_);
     ~Objet();
 
     std::string nom;
-    //int prix;
-    //int poids;
+    // int prix;
+    // int poids;
 
 private:
 };
