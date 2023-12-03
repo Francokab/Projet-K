@@ -15,6 +15,12 @@ int Narrateur::choixJoueurInt()
 {
     int choix;
     cin >> choix;
+    while(cin.fail()){
+        cout << "Veuillez n'utilisez que des chiffres pour faire des choix dans la console. Veuillez réessayer." << endl;
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin >> choix;
+    }
     cout << endl;
     return choix;
 }
