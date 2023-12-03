@@ -106,6 +106,13 @@ Personnage *Catalogue::mage()
     return joueur;
 }
 
+Arme *Catalogue::armeBasic(std::string nom_, int attaque_)
+{
+    Arme *armeBasic = new Arme(nom_, 0, 0, attaque_);
+    jeu->vectorObjet.push_back(armeBasic);
+    return armeBasic;
+}
+
 Arme *Catalogue::poing()
 {
     Arme *poing = new Arme("Coup de poing", 0, 0, 1);
@@ -133,6 +140,13 @@ Arme *Catalogue::baton()
     Arme *baton = new Arme("Baton en bois", 5, 1, 2);
     jeu->vectorObjet.push_back(baton);
     return baton;
+}
+
+Armure *Catalogue::armureBasic(std::string nom_, int defense_)
+{
+    Armure *armureBasic = new Armure(nom_, 0, 0, defense_);
+    jeu->vectorObjet.push_back(armureBasic);
+    return armureBasic;
 }
 
 Armure *Catalogue::peau()

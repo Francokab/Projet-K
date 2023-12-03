@@ -23,10 +23,12 @@ public:
     Personnage *rodeur();
     Personnage *mage();
 
+    Arme *armeBasic(std::string nom_, int attaque_);
     Arme *poing();
     Arme *epee();
     Arme *dagues();
     Arme *baton();
+    Armure *armureBasic(std::string nom_, int defense_);
     Armure *peau();
     Armure *cuirasse();
     Armure *cuir();

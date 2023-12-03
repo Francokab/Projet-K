@@ -156,27 +156,24 @@ void Jeu::readText(int i)
         string line_ = *it;
         if (line_ == "*COMBAT*")
         {
-            vectorPersonnage.push_back(catalogue.basic(*(it + 1), stoi(*(it + 2)), stoi(*(it + 3))));
             operation.operation = COMBAT;
-            operation.pointer_1 = vectorPersonnage.back();
+            operation.pointer_1 = catalogue.basic(*(it + 1), stoi(*(it + 2)), stoi(*(it + 3)));
             vectorToDo.push_back(operation);
             it = it + 3;
             new_text_operation = true;
         }
         else if (line_ == "*ARME*")
         {
-            vectorObjet.push_back(new Arme(*(it + 1), stoi(*(it + 2))));
             operation.operation = ARME;
-            operation.pointer_1 = vectorObjet.back();
+            operation.pointer_1 = catalogue.armeBasic(*(it + 1), stoi(*(it + 2)));
             vectorToDo.push_back(operation);
             it = it + 2;
             new_text_operation = true;
         }
         else if (line_ == "*ARMURE*")
         {
-            vectorObjet.push_back(new Armure(*(it + 1), stoi(*(it + 2))));
             operation.operation = ARMURE;
-            operation.pointer_1 = vectorObjet.back();
+            operation.pointer_1 = catalogue.armureBasic(*(it + 1), stoi(*(it + 2)));
             vectorToDo.push_back(operation);
             it = it + 2;
             new_text_operation = true;
