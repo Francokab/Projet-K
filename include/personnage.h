@@ -15,8 +15,8 @@ using namespace std;
 
 enum SKILL
 {
-    SKILL_CRIT_RODEUR,   // Not Implemented
-    SKILL_ESQUIVE_RODEUR // Not Implemented
+    SKILL_CRIT_RODEUR,
+    SKILL_ESQUIVE_RODEUR 
 };
 
 class Personnage
