@@ -3,9 +3,6 @@
 
 # TODO
     - Separer JoueurHumain et JoueurMonstre dans leur propre fichier
-    - Implementer la magie
-    - Implementer deciderCombat
-        - utiliser de la magie
     - Ajouter des check pour verfier les Inputs dans Narateur
     - Implementer correctement tous les delete
     - Re-re-equilibrer le jeu de sorte à ce que les PV et dégats infligées semble plus réaliste et ait un meilleur feeling
