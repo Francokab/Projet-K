@@ -40,14 +40,11 @@ void Jeu::start()
     string text;
     vector<int> *vector_path;
     int pathToGo;
-    // int debug;
 
-    // Initialisation de truc
-
-    // creation de personnage
+    //Creation de personnage
     creationDePersonnage();
 
-    // the game start
+    //Le jeu en tant que tel commence 
     goToPath(0);
     while (gameIsRunning)
     {
@@ -55,16 +52,6 @@ void Jeu::start()
         OperationToDo operation_to_do = vectorToDo.front();
         vectorToDo.erase(vectorToDo.begin());
 
-        // Debug
-        // cout << "vectorToDo :\n";
-        // for (OperationToDo op: vectorToDo) {
-        //     cout << op.operation << " " << op.pointer_1 << "\n";
-        // }
-        // cout << "current operation : " << operation_to_do.operation << " " << operation_to_do.pointer_1 << "\n";
-        // cin >> debug;
-        // cout << "\n";
-
-        // switch
         switch (operation_to_do.operation)
         {
         case TEXT:
@@ -280,20 +267,23 @@ void Jeu::killPersonnageFromJoueur(Joueur *joueur)
 
 void Jeu::prendreArme(Personnage *joueur, Arme *objet)
 {
-    joueur->add_equip_arme(objet);
-    narrateur.prendreObjet(joueur, objet);
+    if(narrateur.prendreArme(joueur, objet)){
+        joueur->add_equip_arme(objet);
+    }
 }
 
 void Jeu::prendreArmure(Personnage *joueur, Armure *objet)
-{
-    joueur->add_equip_armure(objet);
-    narrateur.prendreObjet(joueur, objet);
+{ 
+    if(narrateur.prendreArmure(joueur, objet)){
+        joueur->add_equip_armure(objet);
+    }
 }
 
 void Jeu::prendreConsommable(Personnage *joueur, Consommable *objet)
 {
-    joueur->add_consommable(objet);
-    narrateur.prendreObjet(joueur, objet);
+    if(narrateur.prendreConsommable(joueur, objet)){
+        joueur->add_consommable(objet);
+    }
 }
 
 void Jeu::lose()

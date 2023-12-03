@@ -21,11 +21,15 @@ public:
     int choixJoueurInt(int min, int max); // min inclusif
     int choixJoueurInt(string text_to_print, int max);
     int choixJoueurInt(string text_to_print, int min, int max);
+    int prendreArme(Personnage *joueur, Arme *arme);
+    int prendreArmure(Personnage *joueur, Armure *armure);
+    int prendreConsommable(Personnage *joueur, Consommable *consommable);
+
     string choixJoueurString();
     string choixJoueurString(string text_to_print);
+
     void printScreen();
     void printScreen(string text);
-    void prendreObjet(Personnage *joueur, Objet *objet);
     void win();
     void lose();
 

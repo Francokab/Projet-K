@@ -83,14 +83,50 @@ void Narrateur::printScreen(string text)
     cout << text << endl;
 }
 
-void Narrateur::prendreObjet(Personnage *joueur, Objet *objet)
+int Narrateur::prendreArme(Personnage *joueur, Arme *arme)
 {
-    cout << joueur->get_nom() << " prend l'objet " << objet->nom << endl;
+    cout << "Vous trouvez une " << arme->nom << " sur le sol." << endl;
+    cout << "Son attaque est de : " << arme->attaque << ". La votre est de : " << joueur->get_arme_equipe()->attaque << endl;
+
+    int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 1);
+    
+    if(choix == 1){
+        cout << joueur->get_nom() << " prend l'arme " << arme->nom << endl;
+    } else {
+        cout << joueur->get_nom() << " laisse l'arme " << arme->nom << endl;
+    }
+    return choix;
+}
+
+int Narrateur::prendreArmure(Personnage *joueur, Armure *armure)
+{
+    cout << "Vous trouvez une " << armure->nom << " sur le sol." << endl;
+    cout << "Sa défense est de : " << armure->defense << ". La votre est de : " << joueur->get_armure_equipe()->defense << endl;
+
+    int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 1);
+    
+    if(choix == 1){
+        cout << joueur->get_nom() << " prend l'armure " << armure->nom << endl;
+    } else {
+        cout << joueur->get_nom() << " laisse l'armure " << armure->nom << endl;
+    }
+
+    return choix;
+}
+
+int Narrateur::prendreConsommable(Personnage *joueur, Consommable *consommable)
+{
+    cout << "Vous trouvez un " << consommable->nom << " sur le sol." << endl;
+    cout << joueur->get_nom() << " prend l'objet " << consommable->nom << endl;
+
+    int choix = 0;
+
+    return choix;
 }
 
 void Narrateur::win()
 {
-    cout << "Dans ce monde, peu vous arrive à la cheville." << endl;
+    cout << "Dans ce monde, personne ne vous arrive à la cheville." << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "Vous avez gagné !" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
