@@ -56,7 +56,7 @@ void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
 {
     for (Personnage *personnageActuel : vectorPersonnage)
     {
-        string messageChoix = "1 : Attaquer un ennemi \n2 : Utiliser un consommable \n3 : Utiliser de la magie \n4 : Changer d'arme ou armure \n";
+        string messageChoix = "1 : Attaquer un ennemi \n2 : Utiliser un consommable \n3 : Utiliser de la magie \n";
 
         narrateur->printEtatCombat2Joueur(this->vectorPersonnage, joueurEnnemi->vectorPersonnage);
         narrateur->printScreen(personnageActuel->get_nom() + " doit choisir une action \n");
