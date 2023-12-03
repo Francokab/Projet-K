@@ -7,7 +7,6 @@
     - Implementer deciderCombat
         - utiliser un consommable
         - utiliser de la magie
-        - changer arme ou armure
     - Ajouter des check pour verfier les Inputs dans Narateur
     - Implementer correctement tous les delete
     - Re-re-equilibrer le jeu de sorte à ce que les PV et dégats infligées semble plus réaliste et ait un meilleur feeling

@@ -3,23 +3,43 @@
 
 #pragma once
 
-#include "Objet.h"
+#include "objet.h"
+#include "string"
+
+
+using namespace std;
+
+class Joueur;
+class Personnage;
 
 class Consommable : public Objet
 {
 public:
     Consommable();
+    Consommable(string nom, int prix);
     ~Consommable();
 
-    virtual void effet() = 0;
+    string get_nom(){return nom;}
 
-private:
+    virtual void effet(Joueur *joueurEnnemi, Personnage *personnageActuel) = 0;
+
+protected:
+    string nom;
+    int prix;
 };
 
 class PotionDeVie : public Consommable
 {
 public:
-    void effet();
+    PotionDeVie(string nom, int prix);
+    void effet(Joueur *joueurEnnemi, Personnage *personnageActuel);
+};
+
+class Bombe : public Consommable
+{
+public:
+    Bombe(string nom, int prix);
+    void effet(Joueur *joueurEnnemi, Personnage *personnageActuel);
 };
 
 #endif

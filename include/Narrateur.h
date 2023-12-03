@@ -24,6 +24,7 @@ public:
     int prendreArme(Personnage *joueur, Arme *arme);
     int prendreArmure(Personnage *joueur, Armure *armure);
     int prendreConsommable(Personnage *joueur, Consommable *consommable);
+    int useConsommable(vector<Consommable*> liste_consommable);
 
     string choixJoueurString();
     string choixJoueurString(string text_to_print);

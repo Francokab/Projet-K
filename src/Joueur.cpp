@@ -61,17 +61,14 @@ void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
         narrateur->printEtatCombat2Joueur(this->vectorPersonnage, joueurEnnemi->vectorPersonnage);
         narrateur->printScreen(personnageActuel->get_nom() + " doit choisir une action \n");
 
-        switch (narrateur->choixJoueurInt(messageChoix, 1, 5))
+        switch (narrateur->choixJoueurInt(messageChoix, 1, 4))
         {
         case 1: // Attaquer un ennemi
             _choixAttaquerUnEnnemi(joueurEnnemi, personnageActuel);
             break;
 
         case 2:
-            // si choisir consommable
-            // choisir consommable
-            // print effet consommable
-            // choisir cible parmi tous les personnage présent
+            useConsommable(joueurEnnemi, personnageActuel);
             break;
 
         case 3:
@@ -81,19 +78,19 @@ void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
             // choisir cible ?
             break;
 
-        case 4:
-            // si changer arme ou armure
-            // montre inventaire
-            // choisir objet à équiper
-            // retour aux choix
-            break;
-
         default:
             break;
         }
-        // donner une option pour revenir au choix globales à tout moment ?
+    }
+}
 
-        // apres action dire ce qui se passe (perte de PV et tout ça)
+void JoueurHumain::useMagic(Joueur *joueurEnnemi, Personnage *personnageActuel){
+    vector<Consommable *> consommables_liste = personnageActuel->get_consommables();
+    int choix = narrateur->useConsommable(consommables_liste);
+    if(choix != -1){
+        Consommable* cons = consommables_liste.at(choix);
+        personnageActuel->del_consommable(cons);
+        cons->effet(joueurEnnemi, personnageActuel);
     }
 }
 
@@ -121,6 +118,16 @@ void JoueurHumain::_choixAttaquerUnEnnemi(Joueur *joueurEnnemi, Personnage *pers
     }
     string messageAction = personnageActuel->attaquer_Un_Autre_Personnage(personnageAAttaquer);
     narrateur->printScreen(messageAction);
+}
+
+void JoueurHumain::useConsommable(Joueur *joueurEnnemi, Personnage *personnageActuel){
+    vector<Consommable *> consommables_liste = personnageActuel->get_consommables();
+    int choix = narrateur->useConsommable(consommables_liste);
+    if(choix != -1){
+        Consommable* cons = consommables_liste.at(choix);
+        personnageActuel->del_consommable(cons);
+        cons->effet(joueurEnnemi, personnageActuel);
+    }
 }
 
 int JoueurHumain::deciderPath(int numberOfChoice)

@@ -104,9 +104,8 @@ int Narrateur::prendreArme(Personnage *joueur, Arme *arme)
     cout << "Son attaque est de : " << arme->attaque << ". La votre est de : " << joueur->get_arme_equipe()->attaque << endl;
 
     int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 2);
-
-    if (choix == 1)
-    {
+    
+    if(choix == 1){
         cout << joueur->get_nom() << " prend l'arme " << arme->nom << endl;
     }
     else
@@ -137,12 +136,27 @@ int Narrateur::prendreArmure(Personnage *joueur, Armure *armure)
 
 int Narrateur::prendreConsommable(Personnage *joueur, Consommable *consommable)
 {
-    cout << "Vous trouvez un " << consommable->nom << " sur le sol." << endl;
-    cout << joueur->get_nom() << " prend l'objet " << consommable->nom << endl;
+    cout << "Vous trouvez un " << consommable->get_nom() << " sur le sol." << endl;
+    cout << joueur->get_nom() << " prend l'objet " << consommable->get_nom() << endl;
 
     int choix = 0;
 
     return choix;
+}
+
+int Narrateur::useConsommable(vector<Consommable*> liste_consommable){
+    int size = liste_consommable.size();
+    if(size == 0){
+        cout << "Vous n'avez aucun consommable à utiliser." << endl;
+        return -1;
+    } else {
+        cout << "Liste des consommables : " << endl;
+        for(int i=0; i < size; i++){
+            cout << i << ". " << liste_consommable.at(i)->get_nom() << endl;
+        }
+        int choix = choixJoueurInt("Lequel souhaitez vous utiliser ?", 0, size);
+        return choix;
+    }
 }
 
 void Narrateur::win()

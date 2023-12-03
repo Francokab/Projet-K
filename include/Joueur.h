@@ -41,6 +41,8 @@ class JoueurHumain : public Joueur
 public:
     void deciderCombat2Joueur(Joueur *joueurEnnemi);
     void _choixAttaquerUnEnnemi(Joueur *joueurEnnemi, Personnage *personnageActuel);
+    void useConsommable(Joueur *joueurEnnemi, Personnage *personnageActuel);
+    void useMagic(Joueur *joueurEnnemi, Personnage *personnageActuel);
     int deciderPath(int numberOfChoice);
     int deciderClasse(int numberOfChoice);
     string deciderNom();

@@ -44,6 +44,29 @@ Personnage *Catalogue::basic(string nom, int pv, int force)
     return joueur;
 }
 
+Personnage *Catalogue::artificier()
+{
+    Arme *poing = Catalogue::poing();
+    Armure *cuirasse = Catalogue::cuirasse();
+    Personnage *joueur = basic();
+    jeu->vectorPersonnage.push_back(joueur);
+    joueur->set_nom("Artificier");
+    joueur->set_pv(100);
+    joueur->set_force(0);
+    joueur->set_mana(0);
+    joueur->add_equip_arme(poing);
+    joueur->add_equip_armure(cuirasse);
+    Consommable *bombe = Catalogue::bombe();
+    Consommable *potionDeVie = Catalogue::potionDeVie();
+    joueur->add_consommable(bombe);
+    joueur->add_consommable(bombe);
+    joueur->add_consommable(bombe);
+    joueur->add_consommable(bombe);
+    joueur->add_consommable(potionDeVie);
+
+    return joueur;
+}
+
 Personnage *Catalogue::guerrier()
 {
     Arme *epee = Catalogue::epee();
@@ -176,4 +199,14 @@ Armure *Catalogue::tissus()
     Armure *tissus = new Armure("Vetements en tissus", 2);
     jeu->vectorObjet.push_back(tissus);
     return tissus;
+}
+
+Consommable *Catalogue::bombe(){
+    Bombe *bombe = new Bombe("Bombe", 25);
+    return bombe;
+}
+
+Consommable *Catalogue::potionDeVie(){
+    PotionDeVie *potion = new PotionDeVie("Potion de vie", 25);
+    return potion;
 }

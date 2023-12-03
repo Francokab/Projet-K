@@ -218,8 +218,8 @@ void Jeu::readText(int i)
 void Jeu::creationDePersonnage()
 {
     // choix de classe
-    narrateur.printScreen("Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3.");
-    int choixClasse = joueurHumain.deciderClasse(3);
+    narrateur.printScreen("Choisis ta classe : Guerrier = 1, Rodeur = 2, Mage = 3, Artificier = 4.");
+    int choixClasse = joueurHumain.deciderClasse(4);
     Personnage *personnageJoueur;
     switch (choixClasse)
     {
@@ -231,6 +231,10 @@ void Jeu::creationDePersonnage()
         break;
     case 3:
         personnageJoueur = catalogue.mage();
+        break;
+    
+    case 4:
+        personnageJoueur = catalogue.artificier();
         break;
 
     default:

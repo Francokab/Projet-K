@@ -22,6 +22,7 @@ public:
     Personnage *guerrier();
     Personnage *rodeur();
     Personnage *mage();
+    Personnage *artificier();
 
     Arme *armeBasic(std::string nom_, int attaque_); // for arme coming from text files
     Arme *poing();
@@ -33,6 +34,9 @@ public:
     Armure *cuirasse();
     Armure *cuir();
     Armure *tissus();
+
+    Consommable *bombe();
+    Consommable *potionDeVie();
 
 private:
 };
