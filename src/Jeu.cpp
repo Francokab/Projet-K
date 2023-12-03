@@ -11,6 +11,7 @@
 #include <thread>
 #include <iostream>
 #include <typeinfo>
+#include <random>
 
 using namespace std;
 
@@ -29,6 +30,7 @@ Jeu::Jeu()
     joueurIA.setNarrateur(&narrateur);
     joueurIA.joueurTag = TAG_MONSTRE;
     catalogue = Catalogue(this);
+    srand(time(NULL));
 }
 
 Jeu::~Jeu()

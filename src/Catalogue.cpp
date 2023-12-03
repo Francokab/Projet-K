@@ -51,8 +51,8 @@ Personnage *Catalogue::guerrier()
     Personnage *joueur = basic();
     jeu->vectorPersonnage.push_back(joueur);
     joueur->set_nom("Guerrier");
-    joueur->set_pv(100);
-    joueur->set_force(7);
+    joueur->set_pv(35);
+    joueur->set_force(4);
     // joueur->set_endurance(7);
     // joueur->set_vitesse(7);
     // joueur->set_agilite(7);
@@ -71,8 +71,8 @@ Personnage *Catalogue::rodeur()
     Personnage *joueur = basic();
     jeu->vectorPersonnage.push_back(joueur);
     joueur->set_nom("Rodeur");
-    joueur->set_pv(100);
-    joueur->set_force(5);
+    joueur->set_pv(25);
+    joueur->set_force(4);
     // joueur->set_endurance(8);
     // joueur->set_vitesse(8);
     // joueur->set_agilite(9);
@@ -123,14 +123,14 @@ Arme *Catalogue::poing()
 Arme *Catalogue::epee()
 {
 
-    Arme *epee = new Arme("Epee en fer", 6);
+    Arme *epee = new Arme("Epee en fer", 4);
     jeu->vectorObjet.push_back(epee);
     return epee;
 }
 
 Arme *Catalogue::dagues()
 {
-    Arme *dagues = new Arme("Dague en fer", 4);
+    Arme *dagues = new Arme("Dague en fer", 3);
     jeu->vectorObjet.push_back(dagues);
     return dagues;
 }
@@ -159,14 +159,14 @@ Armure *Catalogue::peau()
 Armure *Catalogue::cuirasse()
 {
 
-    Armure *cuirasse = new Armure("Cuirasse en maille", 7);
+    Armure *cuirasse = new Armure("Cuirasse en maille", 4);
     jeu->vectorObjet.push_back(cuirasse);
     return cuirasse;
 }
 
 Armure *Catalogue::cuir()
 {
-    Armure *cuir = new Armure("Armure en cuir", 5);
+    Armure *cuir = new Armure("Armure en cuir", 3);
     jeu->vectorObjet.push_back(cuir);
     return cuir;
 }

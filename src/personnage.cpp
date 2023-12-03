@@ -1,5 +1,6 @@
 #include "Personnage.h"
 #include <algorithm>
+#include <random>
 
 using namespace std;
 
@@ -62,17 +63,43 @@ void Personnage::equiper_armure(Armure *new_armure)
     armure_equipe = new_armure;
 }
 
+bool Personnage::has_competence(SKILL skillTofind)
+{
+    // Use std::find to check if the element is present in the vector
+    auto it = std::find(competences_liste.begin(), competences_liste.end(), skillTofind);
+
+    if (it != competences_liste.end()) {
+        // Element found
+        return true;
+    } else {
+        // Element not found
+        return false;
+    }
+}
+
 string Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis)
 {
     string message = this->get_nom() + " attaque " + ennemis->get_nom() + " avec " + armes->nom + "\n";
 
     int pv_ennemie = ennemis->get_pv();
-    int degats_brut = armes->attaque * (10 + force);
+    int degats_brut = armes->attaque * force;
+    if (has_competence(SKILL_CRIT_RODEUR)) {
+        if (rand() % 4 == 0) {
+            degats_brut *= 2;
+            message += this->get_nom() + " a fait un coup critique\n";
+        }
+    }
     int degats_net = (degats_brut - ennemis->armure_equipe->defense);
+    if (ennemis->has_competence(SKILL_ESQUIVE_RODEUR)){
+        if (rand() % 4 == 0) {
+            degats_net = 0;
+            message += ennemis->get_nom() + " a esquivé le coup\n";
+        }
+    }
 
     message += to_string(degats_net) + " dégâts infligés \n";
     ennemis->set_pv(pv_ennemie - degats_net);
-    message += ennemis->get_nom() + " a maintenant " + to_string(ennemis->get_pv()) + " pv";
+    message += ennemis->get_nom() + " a maintenant " + to_string(ennemis->get_pv()) + " pv\n";
 
     return message;
 }

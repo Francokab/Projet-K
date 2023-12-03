@@ -51,6 +51,7 @@ public:
     Arme *get_arme_equipe() { return arme_equipe; }
     Armure *get_armure_equipe() { return armure_equipe; }
     vector<SKILL> get_competences() { return competences_liste; }
+    bool has_competence(SKILL skillTofind);
     vector<Consommable *> get_consommables() { return consommables_liste; }
     vector<Arme *> get_armes() { return armes_liste; }
     vector<Armure *> get_armures() { return armures_liste; }

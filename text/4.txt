@@ -9,7 +9,7 @@ Le Mimic laisse tomber dans sa mort une arme.
 
 *ARME*
 Lumière
-2
+5
 
 Après ce rude combat, vous décidez de poursuivre votre route.
 

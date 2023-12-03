@@ -2,7 +2,6 @@
  Jeu dont vous êtes le héros
 
 # TODO
-    - Reequilibrer la balance du jeu par rapport au donnée dans les fichier textes
     - Separer JoueurHumain et JoueurMonstre dans leur propre fichier
     - Implementer les compétence
     - Implementer la magie
@@ -12,6 +11,7 @@
         - changer arme ou armure
     - Ajouter des check pour verfier les Inputs dans Narateur
     - Implementer correctement tous les delete
+    - Re-re-equilibrer le jeu de sorte à ce que les PV et dégats infligées semble plus réaliste et ait un meilleur feeling
     - Faire des tests avec une classe test ?
         - tester les combats
     - ajouter plus d'option dans creation de personnage
