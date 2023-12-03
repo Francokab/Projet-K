@@ -30,6 +30,7 @@ public:
 
     void printScreen();
     void printScreen(string text);
+    void printEtatCombat2Joueur(vector<Personnage*> joueur1, vector<Personnage*> joueur2);
     void win();
     void lose();
 

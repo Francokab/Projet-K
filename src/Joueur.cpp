@@ -58,9 +58,8 @@ void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
     {
         string messageChoix = "1 : Attaquer un ennemi \n2 : Utiliser un consommable \n3 : Utiliser de la magie \n4 : Changer d'arme ou armure \n";
 
+        narrateur->printEtatCombat2Joueur(this->vectorPersonnage, joueurEnnemi->vectorPersonnage);
         narrateur->printScreen(personnageActuel->get_nom() + " doit choisir une action \n");
-        // print personnage status (ajouter fonction dans narrateur)
-        // print all status
 
         switch (narrateur->choixJoueurInt(messageChoix, 1, 5))
         {

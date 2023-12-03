@@ -83,16 +83,34 @@ void Narrateur::printScreen(string text)
     cout << text << endl;
 }
 
+void Narrateur::printEtatCombat2Joueur(vector<Personnage *> joueur1, vector<Personnage *> joueur2)
+{
+    string messageToPrint = "Vos personnages sont : \n";
+    for (Personnage *p : joueur1)
+    {
+        messageToPrint += p->get_nom() + " a " + to_string(p->get_pv()) + " PV\n";
+    }
+    messageToPrint += "Les personnages ennemies sont : \n";
+    for (Personnage *p : joueur2)
+    {
+        messageToPrint += p->get_nom() + " a " + to_string(p->get_pv()) + " PV\n";
+    }
+    printScreen(messageToPrint);
+}
+
 int Narrateur::prendreArme(Personnage *joueur, Arme *arme)
 {
     cout << "Vous trouvez une " << arme->nom << " sur le sol." << endl;
     cout << "Son attaque est de : " << arme->attaque << ". La votre est de : " << joueur->get_arme_equipe()->attaque << endl;
 
     int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 1);
-    
-    if(choix == 1){
+
+    if (choix == 1)
+    {
         cout << joueur->get_nom() << " prend l'arme " << arme->nom << endl;
-    } else {
+    }
+    else
+    {
         cout << joueur->get_nom() << " laisse l'arme " << arme->nom << endl;
     }
     return choix;
@@ -104,10 +122,13 @@ int Narrateur::prendreArmure(Personnage *joueur, Armure *armure)
     cout << "Sa défense est de : " << armure->defense << ". La votre est de : " << joueur->get_armure_equipe()->defense << endl;
 
     int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 1);
-    
-    if(choix == 1){
+
+    if (choix == 1)
+    {
         cout << joueur->get_nom() << " prend l'armure " << armure->nom << endl;
-    } else {
+    }
+    else
+    {
         cout << joueur->get_nom() << " laisse l'armure " << armure->nom << endl;
     }
 
