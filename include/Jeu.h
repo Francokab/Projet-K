@@ -58,7 +58,9 @@ public:
     void win();
     void readText(int i);
     void creationDePersonnage();
-    void killPersonnage(Personnage *personnage);   // remove Personnage from everything and delete it
+    void killPersonnage(Personnage *personnage);   // remove Personnage and its object from everything and delete it
+    void killObject(Objet *objet);                // remove objet from jeu and delete it
+    void killObjectFromPersonnage(Personnage * personnage); // remove all object from personnage and delete them
     void killPersonnageFromJoueur(Joueur *joueur); // remove all Personnage from joueur from everything and delete it
 
 private:

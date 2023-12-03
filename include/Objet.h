@@ -10,7 +10,7 @@ class Objet
 public:
     Objet();
     // Objet(std::string nom_, int prix_, int poids_);
-    ~Objet();
+    ~Objet(); //standard destructor
 
     std::string nom;
     // int prix;

@@ -260,7 +260,47 @@ void Jeu::killPersonnage(Personnage *personnage)
     { // == vectorPersonnage.end() means the element was not found
         vectorPersonnage.erase(position);
     }
+    killObjectFromPersonnage(personnage);
     delete personnage;
+}
+
+void Jeu::killObject(Objet *objet)
+{
+    auto position = std::find(vectorObjet.begin(), vectorObjet.end(), objet);
+    if (position != vectorObjet.end())
+    { // == vectorObjet.end() means the element was not found
+        vectorObjet.erase(position);
+    }
+    delete objet;
+}
+
+void Jeu::killObjectFromPersonnage(Personnage *personnage)
+{
+    Objet *objectToDelete;
+    while(personnage->get_armes().size() > 0)
+    {
+        objectToDelete = personnage->get_armes()[0];
+        personnage->del_arme((Arme *)objectToDelete);
+        killObject(objectToDelete);
+    }
+    while(personnage->get_armures().size() > 0)
+    {
+        objectToDelete = personnage->get_armures()[0];
+        personnage->del_armure((Armure *)objectToDelete);
+        killObject(objectToDelete);
+    }
+    while(personnage->get_consommables().size() > 0)
+    {
+        objectToDelete = personnage->get_consommables()[0];
+        personnage->del_consommable((Consommable *)objectToDelete);
+        killObject(objectToDelete);
+    }
+    while(personnage->get_magie().size() > 0)
+    {
+        objectToDelete = personnage->get_magie()[0];
+        personnage->del_magie((Magie *)objectToDelete);
+        killObject(objectToDelete);
+    }
 }
 
 void Jeu::killPersonnageFromJoueur(Joueur *joueur)
@@ -294,6 +334,8 @@ void Jeu::prendreConsommable(Personnage *joueur, Consommable *objet)
 
 void Jeu::lose()
 {
+    killPersonnageFromJoueur(&joueurHumain);
+    killPersonnageFromJoueur(&joueurIA);
     narrateur.lose();
     system("pause");
     gameIsRunning = false;
@@ -301,6 +343,8 @@ void Jeu::lose()
 
 void Jeu::win()
 {
+    killPersonnageFromJoueur(&joueurHumain);
+    killPersonnageFromJoueur(&joueurIA);
     narrateur.win();
     system("pause");
     gameIsRunning = false;

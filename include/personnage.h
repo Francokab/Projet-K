@@ -31,7 +31,7 @@ public:
     Personnage(string new_nom, int new_pv, int new_force);
 
     // Destructor
-    ~Personnage();
+    ~Personnage(); // standard destructor, to kill its object as well use Jeu.killPersonnage()
 
     // Operations principales de la classe personnage
     string attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis); // output un message qui dit ce qui se passe
@@ -83,7 +83,7 @@ public:
     void add_equip_armure(Armure *armure);
 
     void del_competence(SKILL competence);
-    void del_consommable(Consommable *conso);
+    void del_consommable(Consommable *conso); //does not delete, need to be done on Jeu
     void del_arme(Arme *arme);
     void del_armure(Armure *armure);
     void del_magie(Magie *magie);
