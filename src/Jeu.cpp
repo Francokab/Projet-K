@@ -130,12 +130,13 @@ void Jeu::readText(int i)
     ifstream myfile(path);
     string line;
     vector<string> myLines;
-    while (getline(myfile, line))
+    while (getline(myfile, line, '\n'))
     {
+        // remove carrier return that was not deleted if on linux
+        line.erase(std::remove(line.begin(), line.end(), '\r'), line.end());
         myLines.push_back(line);
     }
 
-    // parse text into a comportement tree
     string cumulative_string = "";
     bool new_text_operation = true;
     OperationToDo operation;
@@ -194,9 +195,7 @@ void Jeu::readText(int i)
         }
         else
         {
-            // cout << endl << "debug print" << endl;
-            // cout << line_ << endl;
-            // cout << "debug print end" << endl << endl;
+
             if (new_text_operation)
             {
                 listText.push_back(line_ + "\n");
