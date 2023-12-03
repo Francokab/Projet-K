@@ -305,7 +305,7 @@ void Jeu::win()
 void Jeu::startCombat2Joueur(Joueur *joueur1, Joueur *joueur2)
 {
     // Initialisation
-    string messageDebutCombat = "Un combat entre " + joueur1->vectorPersonnage[0]->get_nom() + " et " joueur2->vectorPersonnage[0]->get_nom() " commence.\n";
+    string messageDebutCombat = "Un combat entre " + joueur1->vectorPersonnage[0]->get_nom() + " et " + joueur2->vectorPersonnage[0]->get_nom() +  " commence.\n";
     narrateur.printScreen(messageDebutCombat);
     Joueur *deadJoueur;
     int turn = 0;
