@@ -25,7 +25,7 @@ public:
     JOUEUR_TAG joueurTag = TAG_NONE; // Determine gameplay role
 
     vector<Personnage *> vectorPersonnage;
-    virtual void deciderCombat2Joueur(Joueur *joueurEnnemi) = 0;
+    virtual void deciderCombat2Joueur(Joueur *joueurEnnemi) = 0; // decide what to do in a combat
     void setNarrateur(Narrateur *narrateur);
     void addPersonnage(Personnage *personnage);
     void removePersonnage(Personnage *personnage); // remove the personnage, does not delete him
@@ -40,12 +40,12 @@ class JoueurHumain : public Joueur
 {
 public:
     void deciderCombat2Joueur(Joueur *joueurEnnemi);
-    void _choixAttaquerUnEnnemi(Joueur *joueurEnnemi, Personnage *personnageActuel);
-    void useConsommable(Joueur *joueurEnnemi, Personnage *personnageActuel);
-    void useMagic(Joueur *joueurEnnemi, Personnage *personnageActuel);
-    int deciderPath(int numberOfChoice);
-    int deciderClasse(int numberOfChoice);
-    string deciderNom();
+    void _choixAttaquerUnEnnemi(Joueur *joueurEnnemi, Personnage *personnageActuel); // logic for attacking an ennemi during combat
+    void useConsommable(Joueur *joueurEnnemi, Personnage *personnageActuel);         // logic for using a consommable during combat
+    void useMagic(Joueur *joueurEnnemi, Personnage *personnageActuel);               // logic for using magic during combat
+    int deciderPath(int numberOfChoice);                                             // decide what Path to tak
+    int deciderClasse(int numberOfChoice);                                           // decide what class to take at personnage creation
+    string deciderNom();                                                             // choose our name during personnage creation
 };
 class JoueurMonstre : public Joueur
 {

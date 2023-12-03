@@ -47,21 +47,21 @@ public:
     JoueurMonstre joueurIA;
     Catalogue catalogue;
 
-    void start();
-    void goToPath(int path);
+    void start();            // main loop here, does one operation per iteration
+    void goToPath(int path); // clear vectorToDo and readText
     // void startCombat(vector<Joueur *> joueurEnCombat); // Deprecated
-    void startCombat2Joueur(Joueur *joueur1, Joueur *joueur2);
+    void startCombat2Joueur(Joueur *joueur1, Joueur *joueur2); // start a combat between two joueur against each other
     void prendreArme(Personnage *joueur, Arme *objet);
     void prendreArmure(Personnage *joueur, Armure *objet);
     void prendreConsommable(Personnage *joueur, Consommable *objet);
     void lose();
     void win();
-    void readText(int i);
+    void readText(int i); // parse a text file and add the operation to do in vectorToDo
     void creationDePersonnage();
-    void killPersonnage(Personnage *personnage);   // remove Personnage and its object from everything and delete it
-    void killObject(Objet *objet);                // remove objet from jeu and delete it
-    void killObjectFromPersonnage(Personnage * personnage); // remove all object from personnage and delete them
-    void killPersonnageFromJoueur(Joueur *joueur); // remove all Personnage from joueur from everything and delete it
+    void killPersonnage(Personnage *personnage);           // remove Personnage and its object from everything and delete it
+    void killObject(Objet *objet);                         // remove objet from jeu and delete it
+    void killObjectFromPersonnage(Personnage *personnage); // remove all object from personnage and delete them
+    void killPersonnageFromJoueur(Joueur *joueur);         // remove all Personnage from joueur from everything and delete it
 
 private:
 };
