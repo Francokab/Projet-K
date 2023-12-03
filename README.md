@@ -5,7 +5,6 @@
     - Separer JoueurHumain et JoueurMonstre dans leur propre fichier
     - Implementer la magie
     - Implementer deciderCombat
-        - utiliser un consommable
         - utiliser de la magie
     - Ajouter des check pour verfier les Inputs dans Narateur
     - Implementer correctement tous les delete
