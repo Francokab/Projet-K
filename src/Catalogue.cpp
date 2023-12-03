@@ -125,6 +125,8 @@ Personnage *Catalogue::mage()
     joueur->set_mana(100);
     joueur->add_equip_arme(baton);
     joueur->add_equip_armure(tissus);
+    Magie *bouleDeFeu = Catalogue::bouleDeFeu();
+    joueur->add_magie(bouleDeFeu);
 
     return joueur;
 }
@@ -209,4 +211,9 @@ Consommable *Catalogue::bombe(){
 Consommable *Catalogue::potionDeVie(){
     PotionDeVie *potion = new PotionDeVie("Potion de vie", 25);
     return potion;
+}
+
+Magie *Catalogue::bouleDeFeu(){
+    BouleDeFeu *boule = new BouleDeFeu("Boule de feu", 25, 100);
+    return boule;
 }

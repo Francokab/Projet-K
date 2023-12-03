@@ -129,6 +129,10 @@ void Personnage::add_armure(Armure *armure)
     armures_liste.push_back(armure);
 }
 
+void Personnage::add_magie(Magie *magie){
+    magies_liste.push_back(magie);
+}
+
 void Personnage::add_equip_arme(Arme *arme)
 {
     add_arme(arme);

@@ -52,3 +52,4 @@ void Bombe::effet(Joueur *joueurEnnemi, Personnage *personnageActuel)
     cout << PersonnageAAttaquer->get_nom() << " a " << PersonnageAAttaquer->get_pv() << " point de vie." << endl;
     
 }
+

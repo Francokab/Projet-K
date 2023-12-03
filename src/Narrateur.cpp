@@ -88,7 +88,7 @@ void Narrateur::printEtatCombat2Joueur(vector<Personnage *> joueur1, vector<Pers
     string messageToPrint = "Vos personnages sont : \n";
     for (Personnage *p : joueur1)
     {
-        messageToPrint += p->get_nom() + " a " + to_string(p->get_pv()) + " PV\n";
+        messageToPrint += p->get_nom() + " a " + to_string(p->get_pv()) + " PV et a " + to_string(p->get_mana()) + " MP.\n";
     }
     messageToPrint += "Les personnages ennemies sont : \n";
     for (Personnage *p : joueur2)
@@ -142,6 +142,26 @@ int Narrateur::prendreConsommable(Personnage *joueur, Consommable *consommable)
     int choix = 0;
 
     return choix;
+}
+
+int Narrateur::useMagic(Personnage *personnageActuel, vector<Magie *> liste_magie){
+    int size = liste_magie.size();
+    if(size == 0) {
+        cout << "Vous n'avez aucune magie à utiliser." << endl;
+        return -1;
+    } else {
+        int mana_joueur = personnageActuel->get_mana();
+        cout << "Liste des magies disponibles : " << endl;
+        int i = 0;
+        for(Magie* m : liste_magie){
+            if(mana_joueur - m->manaPrix > 0){
+                cout << i << ". " << m->nom << endl;
+                i++;
+            }
+        }
+        int choix = choixJoueurInt("Laquelle souhaitez vous utiliser ?", 0, size);
+        return choix;
+    }
 }
 
 int Narrateur::useConsommable(vector<Consommable*> liste_consommable){

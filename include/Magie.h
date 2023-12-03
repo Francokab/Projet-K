@@ -5,6 +5,11 @@
 
 #include "Objet.h"
 
+using namespace std;
+
+class Joueur;
+class Personnage;
+
 class Magie : public Objet
 {
 public:
@@ -17,7 +22,7 @@ public:
     int manaPrix;
     int nbrUtilisationMax;
 
-    virtual void effet() = 0;
+    virtual void effet(Joueur *joueurEnnemi, Personnage *personnageActuel) = 0;
 
 private:
 };
@@ -25,7 +30,8 @@ private:
 class BouleDeFeu : public Magie
 {
 public:
-    void effet();
+    BouleDeFeu(string nom_, int manaPrix_, int nbrUtilisationMax_);
+    void effet(Joueur *joueurEnnemi, Personnage *personnageActuel);
 };
 
 #endif

@@ -72,10 +72,7 @@ void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
             break;
 
         case 3:
-            // si utiliser magie
-            // choisir sort
-            // print effet du sort
-            // choisir cible ?
+            useMagic(joueurEnnemi, personnageActuel);
             break;
 
         default:
@@ -85,12 +82,11 @@ void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
 }
 
 void JoueurHumain::useMagic(Joueur *joueurEnnemi, Personnage *personnageActuel){
-    vector<Consommable *> consommables_liste = personnageActuel->get_consommables();
-    int choix = narrateur->useConsommable(consommables_liste);
+    vector<Magie *> magies_liste = personnageActuel->get_magie();
+    int choix = narrateur->useMagic(personnageActuel, magies_liste);
     if(choix != -1){
-        Consommable* cons = consommables_liste.at(choix);
-        personnageActuel->del_consommable(cons);
-        cons->effet(joueurEnnemi, personnageActuel);
+        Magie* magie = magies_liste.at(choix);
+        magie->effet(joueurEnnemi, personnageActuel);
     }
 }
 

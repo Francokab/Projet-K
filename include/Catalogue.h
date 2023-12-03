@@ -38,6 +38,8 @@ public:
     Consommable *bombe();
     Consommable *potionDeVie();
 
+    Magie *bouleDeFeu();
+
 private:
 };
 

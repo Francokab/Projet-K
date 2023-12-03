@@ -9,6 +9,7 @@
 #include "Consommable.h"
 #include "Arme.h"
 #include "Armure.h"
+#include "Magie.h"
 
 using namespace std;
 
@@ -52,9 +53,11 @@ public:
     Armure *get_armure_equipe() { return armure_equipe; }
     vector<SKILL> get_competences() { return competences_liste; }
     bool has_competence(SKILL skillTofind);
+
     vector<Consommable *> get_consommables() { return consommables_liste; }
     vector<Arme *> get_armes() { return armes_liste; }
     vector<Armure *> get_armures() { return armures_liste; }
+    vector<Magie *> get_magie() {return magies_liste; }
     map<string, int> get_statistiques() { return statistiques; }
 
     // Setter
@@ -74,6 +77,7 @@ public:
     void add_consommable(Consommable *conso);
     void add_arme(Arme *arme);
     void add_armure(Armure *armure);
+    void add_magie(Magie *magie);
 
     void add_equip_arme(Arme *arme);
     void add_equip_armure(Armure *armure);
@@ -82,6 +86,7 @@ public:
     void del_consommable(Consommable *conso);
     void del_arme(Arme *arme);
     void del_armure(Armure *armure);
+    void del_magie(Magie *magie);
 
     // void raz_competences();
     // void raz_consommables();
@@ -107,6 +112,7 @@ private:
     vector<Consommable *> consommables_liste;
     vector<Arme *> armes_liste;
     vector<Armure *> armures_liste;
+    vector<Magie *> magies_liste;
     map<string, int> statistiques;
 };
 
