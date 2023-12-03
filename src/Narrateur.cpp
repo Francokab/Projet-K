@@ -103,7 +103,7 @@ int Narrateur::prendreArme(Personnage *joueur, Arme *arme)
     cout << "Vous trouvez une " << arme->nom << " sur le sol." << endl;
     cout << "Son attaque est de : " << arme->attaque << ". La votre est de : " << joueur->get_arme_equipe()->attaque << endl;
 
-    int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 1);
+    int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 2);
 
     if (choix == 1)
     {
@@ -121,7 +121,7 @@ int Narrateur::prendreArmure(Personnage *joueur, Armure *armure)
     cout << "Vous trouvez une " << armure->nom << " sur le sol." << endl;
     cout << "Sa défense est de : " << armure->defense << ". La votre est de : " << joueur->get_armure_equipe()->defense << endl;
 
-    int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 1);
+    int choix = choixJoueurInt("Souhaitez-vous l'équiper ? 0 : Non. 1 : Oui.", 0, 2);
 
     if (choix == 1)
     {
