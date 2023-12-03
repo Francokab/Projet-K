@@ -85,7 +85,7 @@ void Narrateur::printScreen(string text)
 
 void Narrateur::prendreObjet(Personnage *joueur, Objet *objet)
 {
-    cout << joueur->get_nom() << "prend l'objet" << objet->nom << endl;
+    cout << joueur->get_nom() << " prend l'objet " << objet->nom << endl;
 }
 
 void Narrateur::win()

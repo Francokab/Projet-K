@@ -12,23 +12,23 @@ class Catalogue
 {
 public:
     Catalogue();
-    Catalogue(Jeu* jeu);
+    Catalogue(Jeu *jeu);
     ~Catalogue();
 
     Jeu *jeu;
 
-    Personnage *basic();
-    Personnage *basic(string nom, int pv, int force);
+    Personnage *basic();                              // for monster coming from text files
+    Personnage *basic(string nom, int pv, int force); // for monster coming from text files
     Personnage *guerrier();
     Personnage *rodeur();
     Personnage *mage();
 
-    Arme *armeBasic(std::string nom_, int attaque_);
+    Arme *armeBasic(std::string nom_, int attaque_); // for arme coming from text files
     Arme *poing();
     Arme *epee();
     Arme *dagues();
     Arme *baton();
-    Armure *armureBasic(std::string nom_, int defense_);
+    Armure *armureBasic(std::string nom_, int defense_); // for armure coming from text files
     Armure *peau();
     Armure *cuirasse();
     Armure *cuir();

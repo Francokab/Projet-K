@@ -81,11 +81,11 @@ void Jeu::start()
             break;
 
         case ARME:
-            prendreObjet(joueurHumain.vectorPersonnage[0], ((Objet *)operation_to_do.pointer_1));
+            prendreArme(joueurHumain.vectorPersonnage[0], ((Arme *)operation_to_do.pointer_1));
             break;
 
         case ARMURE:
-            prendreObjet(joueurHumain.vectorPersonnage[0], ((Objet *)operation_to_do.pointer_1));
+            prendreArmure(joueurHumain.vectorPersonnage[0], ((Armure *)operation_to_do.pointer_1));
             break;
 
         case GO:
@@ -279,24 +279,21 @@ void Jeu::killPersonnageFromJoueur(Joueur *joueur)
     }
 }
 
-void Jeu::prendreObjet(Personnage *joueur, Objet *objet)
+void Jeu::prendreArme(Personnage *joueur, Arme *objet)
 {
-    if (typeid(*objet) == typeid(Arme))
-    {
-        joueur->add_arme((Arme *)objet);
-    }
-    else if (typeid(*objet) == typeid(Armure))
-    {
-        joueur->add_armure((Armure *)objet);
-    }
-    else if (typeid(*objet) == typeid(Consommable))
-    {
-        joueur->add_consommable((Consommable *)objet);
-    }
-    else
-    {
-        throw invalid_argument("objet is not arme, armure or consommable");
-    }
+    joueur->add_equip_arme(objet);
+    narrateur.prendreObjet(joueur, objet);
+}
+
+void Jeu::prendreArmure(Personnage *joueur, Armure *objet)
+{
+    joueur->add_equip_armure(objet);
+    narrateur.prendreObjet(joueur, objet);
+}
+
+void Jeu::prendreConsommable(Personnage *joueur, Consommable *objet)
+{
+    joueur->add_consommable(objet);
     narrateur.prendreObjet(joueur, objet);
 }
 

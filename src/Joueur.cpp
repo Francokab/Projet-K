@@ -149,6 +149,7 @@ void JoueurMonstre::deciderCombat2Joueur(Joueur *joueurEnnemi)
                 break;
             }
         }
-        personnageActuel->attaquer_Un_Autre_Personnage(PersonnageAAttaquer);
+        string message = personnageActuel->attaquer_Un_Autre_Personnage(PersonnageAAttaquer);
+        narrateur->printScreen(message);
     }
 }
