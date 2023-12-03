@@ -24,9 +24,9 @@ class Personnage
 public:
     // Constructor
     Personnage();
-    Personnage(string new_nom, int new_pv, int new_force,
-               int new_endurance, int new_vitesse, int new_agilite,
-               int new_arcanisme, int new_mana, Arme *new_arme, Armure *new_armure);
+    // Personnage(string new_nom, int new_pv, int new_force,
+    //            int new_endurance, int new_vitesse, int new_agilite,
+    //            int new_arcanisme, int new_mana, Arme *new_arme, Armure *new_armure);
     Personnage(string new_nom, int new_pv, int new_force);
 
     // Destructor
@@ -43,10 +43,10 @@ public:
     int get_pv() { return pv; }
     bool isAlive() { return (pv > 0); }
     int get_force() { return force; }
-    int get_endurance() { return endurance; }
-    int get_vitesse() { return vitesse; }
-    int get_agilite() { return agilite; }
-    int get_arcanisme() { return arcanisme; }
+    // int get_endurance() { return endurance; }
+    // int get_vitesse() { return vitesse; }
+    // int get_agilite() { return agilite; }
+    // int get_arcanisme() { return arcanisme; }
     int get_mana() { return mana; }
     Arme *get_arme_equipe() { return arme_equipe; }
     Armure *get_armure_equipe() { return armure_equipe; }
@@ -60,10 +60,10 @@ public:
     void set_nom(string new_nom) { nom = new_nom; }
     void set_pv(int new_pv) { pv = new_pv; }
     void set_force(int new_force) { force = new_force; }
-    void set_endurance(int new_endurance) { endurance = new_endurance; }
-    void set_vitesse(int new_vitesse) { vitesse = new_vitesse; }
-    void set_agilite(int new_agilite) { agilite = new_agilite; }
-    void set_arcanisme(int new_arcanisme) { arcanisme = new_arcanisme; }
+    // void set_endurance(int new_endurance) { endurance = new_endurance; }
+    // void set_vitesse(int new_vitesse) { vitesse = new_vitesse; }
+    // void set_agilite(int new_agilite) { agilite = new_agilite; }
+    // void set_arcanisme(int new_arcanisme) { arcanisme = new_arcanisme; }
     void set_mana(int new_mana) { mana = new_mana; }
 
     // Pour les listes de competences et des objets,
@@ -95,10 +95,10 @@ private:
     string nom = "";
     int pv = 0;
     int force = 0;
-    int endurance = 0;
-    int vitesse = 0;
-    int agilite = 0;
-    int arcanisme = 0;
+    // int endurance = 0;
+    // int vitesse = 0;
+    // int agilite = 0;
+    // int arcanisme = 0;
     int mana = 0;
     Arme *arme_equipe;
     Armure *armure_equipe;

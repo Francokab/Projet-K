@@ -12,7 +12,7 @@ Personnage::Personnage()
     statistiques["Nombre de sorts utilisés"] = 0;
 }
 
-Personnage::Personnage(string new_nom, int new_pv, int new_force,
+/* Personnage::Personnage(string new_nom, int new_pv, int new_force,
                        int new_endurance, int new_vitesse, int new_agilite,
                        int new_arcanisme, int new_mana, Arme *new_arme, Armure *new_armure)
 {
@@ -33,7 +33,7 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force,
     statistiques["Nombre de salles parcourues"] = 0;
     statistiques["Nombre d'objets ramassés"] = 0;
     statistiques["Nombre de sorts utilisés"] = 0;
-}
+} */
 
 Personnage::Personnage(string new_nom, int new_pv, int new_force)
 {
@@ -41,10 +41,10 @@ Personnage::Personnage(string new_nom, int new_pv, int new_force)
     set_nom(new_nom);
     set_pv(new_pv);
     set_force(new_force);
-    set_endurance(0);
-    set_vitesse(0);
-    set_agilite(0);
-    set_arcanisme(0);
+    // set_endurance(0);
+    // set_vitesse(0);
+    // set_agilite(0);
+    // set_arcanisme(0);
     set_mana(0);
 }
 
@@ -68,7 +68,7 @@ string Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis
 
     int pv_ennemie = ennemis->get_pv();
     int degats_brut = armes->attaque * (10 + force);
-    int degats_net = (degats_brut - ennemis->armure_equipe->defense) / ennemis->endurance;
+    int degats_net = (degats_brut - ennemis->armure_equipe->defense);
     
     message += to_string(degats_net) + " dégâts infligés \n";
     ennemis->set_pv(pv_ennemie - degats_net);

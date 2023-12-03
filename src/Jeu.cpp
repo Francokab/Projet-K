@@ -16,7 +16,6 @@ using namespace std;
 
 Jeu::Jeu()
 {
-    gameState = 0; // which file are we on
     gameIsRunning = true;
     vectorObjet = vector<Objet *>();
     vectorPersonnage = vector<Personnage *>();
@@ -310,54 +309,6 @@ void Jeu::win()
     system("pause");
     gameIsRunning = false;
 }
-
-/* void Jeu::startCombat(vector<Joueur *> joueurEnCombat)
-{
-
-    bool j1_vivant = true;
-    Joueur *j1 = joueurEnCombat[0];
-    Personnage *p1 = j1->vectorPersonnage[0];
-    vector<Personnage *> ennemis1 = {p1};
-
-    bool j2_vivant = true;
-    Joueur *j2 = joueurEnCombat[1];
-    Personnage *p2 = j2->vectorPersonnage[0];
-    vector<Personnage *> ennemis2 = {p2};
-
-    cout << "combat entre " << p1->get_nom() << " et " << p2->get_nom() << endl;
-
-    while (j1_vivant && j2_vivant)
-    {
-        j1->deciderAction(ennemis2, 1);
-        if (p2->get_pv() <= 0)
-        {
-            j2_vivant = false;
-        }
-        j2->deciderAction(ennemis1, 1);
-        if (p1->get_pv() <= 0)
-        {
-            j1_vivant = false;
-        }
-        cout << p1->get_nom() << " a " << p1->get_pv() << " point de vie !" << endl;
-        cout << p2->get_nom() << " a " << p2->get_pv() << " point de vie !" << endl;
-    }
-
-    if (!j2_vivant)
-    {
-        // C'est le monstre à combattre
-        cout << "Le " << p2->get_nom() << " est mort !" << endl;
-        killPersonnage(p2);
-    }
-    else if (!j1_vivant)
-    {
-        this->lose();
-    }
-    else
-    {
-        cout << "Error at the end of the combat ??" << endl;
-        this->lose();
-    }
-} */
 
 void Jeu::startCombat2Joueur(Joueur *joueur1, Joueur *joueur2)
 {

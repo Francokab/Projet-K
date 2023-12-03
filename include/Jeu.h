@@ -37,7 +37,6 @@ public:
     Jeu();
     ~Jeu();
 
-    int gameState; // which file are we on
     bool gameIsRunning;
     vector<Objet *> vectorObjet;
     vector<Personnage *> vectorPersonnage;

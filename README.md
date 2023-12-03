@@ -3,6 +3,7 @@
 
 # TODO
     - Reequilibrer la balance du jeu par rapport au donnée dans les fichier textes
+    - Separer JoueurHumain et JoueurMonstre dans leur propre fichier
     - Implementer les compétence
     - Implementer la magie
     - Implementer deciderCombat
