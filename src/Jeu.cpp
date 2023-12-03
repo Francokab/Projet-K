@@ -77,7 +77,7 @@ void Jeu::start()
         case COMBAT:
             joueurIA.addPersonnage((Personnage *)operation_to_do.pointer_1);
             joueurIA.joueurTag = TAG_MONSTRE;
-            startCombat({&joueurHumain, &joueurIA});
+            startCombat2Joueur(&joueurHumain, &joueurIA);
             break;
 
         case ARME:
@@ -156,7 +156,7 @@ void Jeu::readText(int i)
         string line_ = *it;
         if (line_ == "*COMBAT*")
         {
-            vectorPersonnage.push_back(new Personnage(*(it + 1), stoi(*(it + 2)), stoi(*(it + 3))));
+            vectorPersonnage.push_back(catalogue.basic(*(it + 1), stoi(*(it + 2)), stoi(*(it + 3))));
             operation.operation = COMBAT;
             operation.pointer_1 = vectorPersonnage.back();
             vectorToDo.push_back(operation);
@@ -317,7 +317,7 @@ void Jeu::win()
     gameIsRunning = false;
 }
 
-void Jeu::startCombat(vector<Joueur *> joueurEnCombat)
+/* void Jeu::startCombat(vector<Joueur *> joueurEnCombat)
 {
 
     bool j1_vivant = true;
@@ -363,25 +363,31 @@ void Jeu::startCombat(vector<Joueur *> joueurEnCombat)
         cout << "Error at the end of the combat ??" << endl;
         this->lose();
     }
-}
+} */
 
 void Jeu::startCombat2Joueur(Joueur *joueur1, Joueur *joueur2)
 {
     // Initialisation
     Joueur *deadJoueur;
-
+    int turn = 0;
     // each iteration is a turn from a joueur
     while (joueur1->isAlive() && joueur2->isAlive())
     {
-        // a joueur does an action with each of its personnage
+        if (turn % 2 == 0) {
+            joueur1->deciderCombat2Joueur(joueur2);
+        }
+        else if (turn % 2 == 1) {
+            joueur2->deciderCombat2Joueur(joueur1);
+        }
+        turn++;
     }
 
     // Check who is dead
-    if (joueur1->isAlive())
+    if (!joueur1->isAlive())
     {
         deadJoueur = joueur1;
     }
-    else if (joueur2->isAlive())
+    else if (!joueur2->isAlive())
     {
         deadJoueur = joueur2;
     }

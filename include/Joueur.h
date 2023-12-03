@@ -25,7 +25,7 @@ public:
     JOUEUR_TAG joueurTag = TAG_NONE; // Determine gameplay role
 
     vector<Personnage *> vectorPersonnage;
-    virtual int deciderAction(vector<Personnage *> liste_personnage_present, int statut) = 0;
+    virtual void deciderCombat2Joueur(Joueur *joueurEnnemi) = 0;
     void setNarrateur(Narrateur *narrateur);
     void addPersonnage(Personnage *personnage);
     void removePersonnage(Personnage *personnage); // remove the personnage, does not delete him
@@ -39,7 +39,8 @@ protected:
 class JoueurHumain : public Joueur
 {
 public:
-    int deciderAction(vector<Personnage *> liste_personnage_present, int statut);
+    void deciderCombat2Joueur(Joueur *joueurEnnemi);
+    void _choixAttaquerUnEnnemi(Joueur *joueurEnnemi, Personnage *personnageActuel);
     int deciderPath(int numberOfChoice);
     int deciderClasse(int numberOfChoice);
     string deciderNom();
@@ -47,7 +48,7 @@ public:
 class JoueurMonstre : public Joueur
 {
 public:
-    int deciderAction(vector<Personnage *> liste_personnage_present, int statut);
+    void deciderCombat2Joueur(Joueur *joueurEnnemi);
 };
 
 #endif

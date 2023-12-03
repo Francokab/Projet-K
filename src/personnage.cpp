@@ -62,13 +62,24 @@ void Personnage::equiper_armure(Armure *new_armure)
     armure_equipe = new_armure;
 }
 
-void Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis)
+string Personnage::attaquer_Un_Autre_Personnage(Arme *armes, Personnage *ennemis)
 {
+    string message = this->get_nom() + " attaque " + ennemis->get_nom() + " avec " + armes->nom + "\n";
 
     int pv_ennemie = ennemis->get_pv();
     int degats_brut = armes->attaque * (10 + force);
     int degats_net = (degats_brut - ennemis->armure_equipe->defense) / ennemis->endurance;
+    
+    message += to_string(degats_net) + " dégâts infligés \n";
     ennemis->set_pv(pv_ennemie - degats_net);
+    message += ennemis->get_nom() + " a maintenant " + to_string(ennemis->get_pv()) + " pv";
+
+    return message;
+}
+
+string Personnage::attaquer_Un_Autre_Personnage(Personnage *ennemis)
+{
+    return attaquer_Un_Autre_Personnage(arme_equipe, ennemis);
 }
 
 void Personnage::add_competence(SKILL competence)

@@ -44,7 +44,7 @@ bool Joueur::isAlive()
 {
     for (Personnage *p : vectorPersonnage)
     {
-        if (p->get_pv() > 0)
+        if (p->isAlive())
         { // if atleast one is alive return true
             return true;
         }
@@ -52,84 +52,76 @@ bool Joueur::isAlive()
     return false;
 }
 
-int JoueurMonstre::deciderAction(vector<Personnage *> liste_personnage_present, int statut)
+void JoueurHumain::deciderCombat2Joueur(Joueur *joueurEnnemi)
 {
-
-    for (Personnage *p : liste_personnage_present)
+    for (Personnage *personnageActuel : vectorPersonnage)
     {
-        vectorPersonnage[0]->attaquer_Un_Autre_Personnage(vectorPersonnage[0]->get_arme_equipe(), p);
-    }
+        string messageChoix = "1 : Attaquer un ennemi \n2 : Utiliser un consommable \n3 : Utiliser de la magie \n4 : Changer d'arme ou armure \n";
 
-    return 0;
+        narrateur->printScreen(personnageActuel->get_nom() + " doit choisir une action \n");
+        // print personnage status (ajouter fonction dans narrateur)
+        // print all status
+
+        switch (narrateur->choixJoueurInt(messageChoix, 1, 5))
+        {
+        case 1: // Attaquer un ennemi
+            _choixAttaquerUnEnnemi(joueurEnnemi, personnageActuel);
+            break;
+
+        case 2:
+            // si choisir consommable
+            // choisir consommable
+            // print effet consommable
+            // choisir cible parmi tous les personnage présent
+            break;
+
+        case 3:
+            // si utiliser magie
+            // choisir sort
+            // print effet du sort
+            // choisir cible ?
+            break;
+
+        case 4:
+            // si changer arme ou armure
+            // montre inventaire
+            // choisir objet à équiper
+            // retour aux choix
+            break;
+
+        default:
+            break;
+        }
+        // donner une option pour revenir au choix globales à tout moment ?
+
+        // apres action dire ce qui se passe (perte de PV et tout ça)
+    }
 }
 
-int JoueurHumain::deciderAction(vector<Personnage *> liste_personnage_present, int statut)
+void JoueurHumain::_choixAttaquerUnEnnemi(Joueur *joueurEnnemi, Personnage *personnageActuel)
 {
-    int choix_int = 0;
-    switch (statut)
+    // print effet de l'arme ?
+    Personnage *personnageAAttaquer;
+    if (joueurEnnemi->vectorPersonnage.size() > 1)
     {
-
-    case BATTLE:
-
-        for (Personnage *p : liste_personnage_present)
+        string messageEnnemi = "Quel ennemi voulez-vous attaquer ? \n";
+        for (long long unsigned int i = 0; i < joueurEnnemi->vectorPersonnage.size(); i++)
         {
-            // Le but est de trouver tous les types de personnage présents dans la salle
-            // C'est le monstre à combattre
-            cout << "Que voulez-vous faire ? Attaquer : 1, Fuir : 2" << endl;
-            string choix = "";
-            int choix_battle = 0;
-            bool exception_present = 1;
-
-            while (exception_present)
-            {
-                cin >> choix;
-                try
-                {
-                    choix_battle = stoi(choix);
-                    exception_present = 0;
-                }
-                catch (exception())
-                {
-                    cout << "N'utiliser que 1 ou 2 en chiffre." << endl;
-                }
-            }
-
-            if (choix_battle == 1)
-            {
-                vectorPersonnage[0]->attaquer_Un_Autre_Personnage(vectorPersonnage[0]->get_arme_equipe(), p);
-            }
-            if (choix_battle == 2)
-            {
-            } // TODO Implémenter fonction fuir
+            messageEnnemi = messageEnnemi + to_string(i + 1) + " : " + joueurEnnemi->vectorPersonnage[i]->get_nom() + "\n";
         }
-
-        break;
-
-    case EXPLORATION:
-
-        string choix = "";
-        int choix_int = 0;
-        bool exception_present = 1;
-        while (exception_present)
-        {
-
-            // On essaye de pouvoir capter les erreurs dans l'écriture du choix des joueurs dans le terminal
-            cin >> choix;
-            try
-            {
-                choix_int = stoi(choix);
-                exception_present = 0;
-            }
-            catch (exception())
-            {
-                cout << "N'utiliser que 1 ou 2 en chiffre." << endl;
-            }
-        }
-
-        break;
+        int choixEnnemi = narrateur->choixJoueurInt(messageEnnemi, 1, joueurEnnemi->vectorPersonnage.size());
+        personnageAAttaquer = joueurEnnemi->vectorPersonnage[choixEnnemi - 1];
     }
-
-    return choix_int;
+    else if (joueurEnnemi->vectorPersonnage.size() == 1)
+    {
+        personnageAAttaquer = joueurEnnemi->vectorPersonnage[0];
+    }
+    else // no ennemi ?
+    {
+        throw exception();
+    }
+    string messageAction = personnageActuel->attaquer_Un_Autre_Personnage(personnageAAttaquer);
+    narrateur->printScreen(messageAction);
 }
 
 int JoueurHumain::deciderPath(int numberOfChoice)
@@ -145,4 +137,18 @@ int JoueurHumain::deciderClasse(int numberOfChoice)
 string JoueurHumain::deciderNom()
 {
     return narrateur->choixJoueurString();
+}
+
+void JoueurMonstre::deciderCombat2Joueur(Joueur *joueurEnnemi)
+{
+    for (Personnage *personnageActuel : vectorPersonnage) {
+        Personnage *PersonnageAAttaquer;
+        for (Personnage *personnageEnnemi: joueurEnnemi->vectorPersonnage) {
+            if (personnageEnnemi->isAlive()) {
+                PersonnageAAttaquer = personnageEnnemi;
+                break;
+            }
+        }
+        personnageActuel->attaquer_Un_Autre_Personnage(PersonnageAAttaquer);
+    }
 }

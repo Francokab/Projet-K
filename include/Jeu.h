@@ -50,7 +50,7 @@ public:
 
     void start();
     void goToPath(int path);
-    void startCombat(vector<Joueur *> joueurEnCombat); // Deprecated
+    //void startCombat(vector<Joueur *> joueurEnCombat); // Deprecated
     void startCombat2Joueur(Joueur *joueur1, Joueur *joueur2);
     void prendreObjet(Personnage *joueur, Objet *objet);
     void lose();
